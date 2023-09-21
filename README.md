@@ -1,2 +1,24 @@
-# book-an-appointmenr
-This is a 2 apps in 1 web app built connecting React/Redux (Front-End) with Ruby on Rails API (Back-End). You can Add/Remove Items and make reservations.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
