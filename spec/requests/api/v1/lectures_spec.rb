@@ -1,12 +1,9 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/lectures', type: :request do
-
   path '/api/v1/lectures' do
-
     get('list lectures') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -19,7 +16,25 @@ RSpec.describe 'api/v1/lectures', type: :request do
     end
 
     post('create lecture') do
+      # Define the request parameters here
       response(200, 'successful') do
+        consumes 'application/json'
+        parameter name: :lecture, in: :body, schema: {
+          type: :object,
+          properties: {
+            name: { type: :string },
+            image_url: { type: :string },
+            description: { type: :string },
+            fb_link: { type: :string },
+            tw_link: { type: :string },
+            ig_link: { type: :string },
+            price: { type: :string },
+            lecture_id: { type: :string },
+            date: { type: :string },
+            city: { type: :string }
+          },
+          required: %w[lecture_id date city]
+        }
 
         after do |example|
           example.metadata[:response][:content] = {

@@ -4,6 +4,61 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/lectures":
+    get:
+      summary: list lectures
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create lecture
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+                fb_link:
+                  type: string
+                tw_link:
+                  type: string
+                ig_link:
+                  type: string
+                price:
+                  type: string
+                lecture_id:
+                  type: string
+                date:
+                  type: string
+                city:
+                  type: string
+              required:
+              - lecture_id
+              - date
+              - city
+  "/api/v1/lectures/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show lecture
+      responses:
+        '200':
+          description: successful
   "/api/v1/users/{user_id}/reservations":
     parameters:
     - name: user_id
@@ -18,7 +73,7 @@ paths:
         '200':
           description: successful
     post:
-      summary: create lecture
+      summary: create reservation
       parameters: []
       responses:
         '200':
