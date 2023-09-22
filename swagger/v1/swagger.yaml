@@ -1,0 +1,43 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/reservations":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create lecture
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lecture_id:
+                  type: string
+                date:
+                  type: string
+                city:
+                  type: string
+              required:
+              - lecture_id
+              - date
+              - city
+servers:
+- url: http://127.0.0.1:3000
