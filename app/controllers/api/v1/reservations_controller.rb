@@ -2,7 +2,8 @@ class Api::V1::ReservationsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:reservations).find(params[:user_id])
+
     respond_to do |format|
       format.json { render json: @user.reservations }
     end
@@ -10,7 +11,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @lecture = Lecture.find(params[:reservation][:lecture_id])  # Get lecture_id from the JSON request body
+    @lecture = Lecture.find(params[:reservation][:lecture_id]) # Get lecture_id from the JSON request body
     @reservation = @user.reservations.new(
       lecture: @lecture,
       date: reservation_params[:date],
@@ -19,11 +20,13 @@ class Api::V1::ReservationsController < ApplicationController
 
     if @reservation.save
       respond_to do |format|
-        format.json { render json: @reservation, status: :created }
+        format.json { render json: JSON.pretty_generate(@reservation.as_json), status: :created }
       end
     else
       respond_to do |format|
-        format.json { render json: @reservation.errors.full_messages, status: :unprocessable_entity }
+        format.json do
+          render json: JSON.pretty_generate(@reservation.errors.full_messages.as_json), status: :unprocessable_entity
+        end
       end
     end
   end
