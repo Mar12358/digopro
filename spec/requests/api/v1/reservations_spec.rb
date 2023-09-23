@@ -27,8 +27,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
         parameter name: :reservation, in: :body, schema: {
           type: :object,
           properties: {
-            lecture_id: { type: :string },
-            date: { type: :string },
+            lecture_id: { type: :number },
+            date: { type: :string, format: :date },
             city: { type: :string }
           },
           required: %w[lecture_id date city]

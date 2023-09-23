@@ -4,9 +4,7 @@ class CreateLectures < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image_url
       t.string :description
-      t.string :fb_link
-      t.string :tw_link
-      t.string :ig_link
+      t.string :web_link
       t.decimal :price
 
       t.timestamps

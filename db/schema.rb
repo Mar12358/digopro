@@ -5,9 +5,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_21_214235) do
     t.string "name"
     t.string "image_url"
     t.string "description"
-    t.string "fb_link"
-    t.string "tw_link"
-    t.string "ig_link"
+    t.string "web_link"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -28,20 +28,13 @@ paths:
                   type: string
                 description:
                   type: string
-                fb_link:
-                  type: string
-                tw_link:
-                  type: string
-                ig_link:
+                web_link:
                   type: string
                 price:
-                  type: string
+                  type: number
+                  format: float
                 lecture_id:
-                  type: string
-                date:
-                  type: string
-                city:
-                  type: string
+                  type: number
               required:
               - lecture_id
               - date
@@ -85,9 +78,10 @@ paths:
               type: object
               properties:
                 lecture_id:
-                  type: string
+                  type: number
                 date:
                   type: string
+                  format: date
                 city:
                   type: string
               required:

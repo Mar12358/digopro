@@ -19,9 +19,7 @@ class Api::V1::LecturesController < ApplicationController
       name: reservation_params[:name],
       image_url: reservation_params[:image_url],
       description: reservation_params[:description],
-      fb_link: reservation_params[:fb_link],
-      tw_link: reservation_params[:tw_link],
-      ig_link: reservation_params[:ig_link],
+      web_link: reservation_params[:web_link],
       price: reservation_params[:price]
     )
 
@@ -39,6 +37,6 @@ class Api::V1::LecturesController < ApplicationController
   end
 
   def reservation_params
-    params.require(:lecture).permit(:name, :image_url, :description, :fb_link, :tw_link, :ig_link, :price)
+    params.require(:lecture).permit(:name, :image_url, :description, :web_link, :price)
   end
 end
