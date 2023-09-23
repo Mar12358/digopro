@@ -1,3 +1,4 @@
+
 {
   "env": {
     "browser": true,
@@ -31,6 +32,8 @@
   "ignorePatterns": [
     "dist/",
     "build/",
-    "node_modules/"
+    "node_modules/",
+    "tmp/",
+    "builds/"
   ]
 }
