@@ -34,6 +34,7 @@
     "build/",
     "node_modules/",
     "tmp/",
-    "builds/"
+    "builds/",
+    "tailwind.config.js"
   ]
 }

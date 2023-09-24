@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import App from './application';
 import store from './redux/store';
 import 'react-toastify/dist/ReactToastify.css';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
