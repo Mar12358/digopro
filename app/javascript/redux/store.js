@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-
+import { configureStore } from "@reduxjs/toolkit";
+import reservationReducer from "./reservation/reservationReducer";
 const store = configureStore({
   reducer: {
-    message: 'message',
+    reservation: reservationReducer,
   },
 });
 
