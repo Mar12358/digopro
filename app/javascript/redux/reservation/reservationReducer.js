@@ -3,16 +3,16 @@ import { createSlice } from '@reduxjs/toolkit';
 const reservationSlice = createSlice({
   name: 'reservation',
   initialState: {
-    allLectures: [],
+    allReservation: [],
   },
   reducers: {
-    setAllLectures: (state, action) => ({
+    setAllReservation: (state, action) => ({
       ...state,
-      allLectures: action.payload,
+      allReservation: action.payload,
     }),
   },
 });
 
-export const { setAllLectures } = reservationSlice.actions;
+export const { setAllReservation } = reservationSlice.actions;
 
 export default reservationSlice.reducer;

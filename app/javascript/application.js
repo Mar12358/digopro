@@ -3,7 +3,7 @@ import '@hotwired/turbo-rails';
 import './controllers';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Reserve from './componenets/Reserve';
+import Reserve from './components/Reserve';
 
 function App() {
   return (
