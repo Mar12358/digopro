@@ -3,11 +3,13 @@ import '@hotwired/turbo-rails';
 import './controllers';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import Reserve from './componenets/Reserve';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<p> Hello, Chris! </p>} />
+      <Route path="/" element={<Reserve/>} />
+      {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );
 }
