@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
-import LectureService from "../Service/classApi";
-import { useDispatch } from "react-redux";
-import { setAllLectures } from "../redux/reservation/reservationReducer";
-import "../stylesheets/reservation.css";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import LectureService from '../Service/classApi';
+import { setAllLectures } from '../redux/reservation/reservationReducer';
+import '../stylesheets/reservation.css';
 
 const Reserve = () => {
   const dispatch = useDispatch();
-  const [startDate, setStartDate] = useState("");
-  const [city, setCity] = useState("");
+  const [startDate, setStartDate] = useState('');
+  const [city, setCity] = useState('');
   const [lectures, setLectures] = useState([]);
-  const [selectedLectureId, setSelectedLectureId] = useState("");
-
+  const [selectedLectureId, setSelectedLectureId] = useState('');
   useEffect(() => {
     const getall = async () => {
       try {
@@ -19,7 +18,7 @@ const Reserve = () => {
           setLectures(response);
           dispatch(setAllLectures(response));
         } else {
-          console.log("Request failed with status:", response.status);
+          console.log('Request failed with status:', response.status);
         }
       } catch (error) {
         console.log(error);
@@ -33,10 +32,9 @@ const Reserve = () => {
       const obj = {
         lecture_id: selectedLectureId,
         date: startDate,
-        city: city
+        city,
       };
       const userId = 1;
-
       const response = await LectureService.createReservation(userId, obj);
 
       if (response) {

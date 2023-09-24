@@ -8,7 +8,7 @@ import Reserve from './componenets/Reserve';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Reserve/>} />
+      <Route path="/" element={<Reserve />} />
       {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );
