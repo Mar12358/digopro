@@ -4,6 +4,7 @@ import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
 import notify from '../Ui/SuccesAlert';
 import showError from '../Ui/ErrorAlert';
+import BasicButtons from '../Ui/Button';
 
 const Reserve = () => {
   const [startDate, setStartDate] = useState('');
@@ -58,18 +59,30 @@ const Reserve = () => {
   };
 
   return (
-    <div className="input-container">
+    <div className="w-full md:bg-slate-300 h-[100vh] pt-[5rem]">
+      <h1 className="text-center text-3xl font-bold py-5">
+        Make a Reservation
+      </h1>
+
       {loading ? (
-        <Loader />
+        <div className="flex justify-center items-center h-[100%]  w-full">
+          <Loader />
+        </div>
       ) : (
-        <form className="reservation-form" onSubmit={handleAddReservation}>
-          <div className="reservation-form">
+        <form
+          className=" md:w-[100%] flex flex-col md:justify-center md:items-center"
+          onSubmit={handleAddReservation}
+        >
+          <div className=" flex flex-col md:mb-[3rem]">
             <select
               value={selectedLectureId}
               onChange={(e) => setSelectedLectureId(e.target.value)}
-              className="select-option"
+              className="md:w-[50rem] px-[1rem] md:border md:h-[5rem] h-[3rem]  rounded-[1rem] w-full "
             >
-              <option value="" className="option">
+              <option
+                value=""
+                className="md:pl-[5rem] md:w-[20rem] h-[2rem] w-[5rem]"
+              >
                 Select a Lecture
               </option>
               {lectures.map((item) => (
@@ -79,22 +92,24 @@ const Reserve = () => {
               ))}
             </select>
           </div>
-          <div className="second-input">
+          <div className=" flex flex-col mt-[2.5rem] md:mt-[1px]">
             <input
               type="date"
               placeholder="Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
+              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem] pt- w-full md:w-[50rem]"
             />
             <input
               type="text"
               placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-full md:w-[50rem] pb-[2rem]"
             />
-            <button type="submit" className="reservation">
-              Make Reservation
-            </button>
+            <div className="mt-[0.5rem] flex justify-center md:justify-start">
+              <BasicButtons submit={handleAddReservation} />
+            </div>
           </div>
         </form>
       )}
