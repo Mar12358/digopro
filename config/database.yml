@@ -7,7 +7,7 @@ default: &default
 development:
   <<: *default
   username: postgres # Change to your local pg username
-  password: Christopher@abraham1 # Change to your local pg password
+  password: postgress # Change to your local pg password
   database: book-an-appointment_app_development
 
 # Warning: The database defined as "test" will be erased and
@@ -16,7 +16,7 @@ development:
 test:
   <<: *default
   username: postgres # Change to your local pg username
-  password: Christopher@abraham1 # Change to your local pg password
+  password: postgres # Change to your local pg password
   database: book-an-appointment_app_test
 
 production:
