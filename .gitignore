@@ -34,3 +34,6 @@
 /node_modules
 
 config/database.yml
+db/schema.rb
+swagger/v1/swagger.yaml
+Gemfile.lock
