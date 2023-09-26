@@ -5,8 +5,8 @@
     "build": "webpack --config webpack.config.js",
     "build:watch": "concurrently \"npm run watch-scripts\"",
     "watch-scripts": "webpack --config webpack.config.js --watch",
-    "watch:css": "npx tailwindcss -i ./app/javascript/index.css -o ./app/javascript/index.css --watch",
-    "start": "concurrently \"rails tailwindcss:watch\" \"npm run build:watch\" \"rails s\"",
+    "watch": "concurrently \"rails tailwindcss:watch\" \"npm run build:watch\"",
+    "start": "concurrently \"npm run watch\" \"rails s\"",
     "project:build": "bundle install & rails db:drop & rails db:create & rails db:migrate & rails db:migrate RAILS_ENV=test& rails db:seed & rails tailwindcss:build & npm run build & rake rswag:specs:swaggerize"
   },
   "dependencies": {

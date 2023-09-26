@@ -125,14 +125,14 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need to have:
 
-- Ruby 3.2.2
+- Ruby
 - Node
 - Postgres
 - Text editor
 
 ### Setup <a name="setup"></a>
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
 
 ```sh
@@ -140,36 +140,46 @@ Clone this repository to your desired folder:
   git clone https://github.com/Mar12358/book-an-appointment.git book-an-appointment
   cd book-an-appointment
 ```
+
+- Ensure you set your current ruby version on Gemfile.
+- Set your postgres username and password, do so on `config/database.yml`. To get instructions on this, open `config/database_sample.yml`.
+
 ### Install <a name="install"></a>
 
-- First, you need to set your postgres username and password, do so on `config/database.yml` both development and test enviroment.
 
-- Now, you need to install all the necessary dependencies, run migrations, and swaggerize. 
-  To do so, run:
+
+- Now, you need to install node dependencies, run:
+```sh
+  npm install
+```
+- We built a script for you to build the whole project at once, run:
 
 ```sh
-bundle install
-rails db:create
-rails db:migrate
-rails db:seed
-rails db:migrate RAILS_ENV=test
-rake rswag:specs:swaggerize   
-
-
+  npm run project:build
 ```
 
 
 ### Usage <a name="usage"></a>
 
-Once you completed the Install section, run:
+- Once you completed the Install section succesfully, run:
 ```sh
-npm run build 
-rails s
+  rails server
 ```
 
+- If you want to watch React and Tailwind changes run:
+
+```sh
+  npm run watch
+```
+
+- You could also run both the server and watch changes by running only:
+
+```sh
+ npm start
+```
 ### API Documentation <a name="api-documentation"></a>
 
-Once you completed the Usage section, navigate to `http://127.0.0.1:3000/api-docs`
+Once you ran the server, navigate to `http://127.0.0.1:3000/api-docs`.
 <!-- ### Run tests
 
 To run tests, run the following command:
