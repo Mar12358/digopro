@@ -1,0 +1,19 @@
+#
+# Change the name of this file to database.yml and configure it with your own username and password below
+#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: YOUR_PASSWORD # Change to your local pg username <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------
+  password: YOUR_PASSWORD # Change to your local pg password <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------
+development:
+  <<: *default
+  database: book-asdan-appointment_app_development
+test:
+  <<: *default
+  database: book-an-appointment_app_test
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
