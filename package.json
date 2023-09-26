@@ -7,7 +7,7 @@
     "watch-scripts": "webpack --config webpack.config.js --watch",
     "watch": "concurrently \"rails tailwindcss:watch\" \"npm run build:watch\"",
     "start": "concurrently \"npm run watch\" \"rails s\"",
-    "project:build": "bundle install & rails db:drop & rails db:create & rails db:migrate & rails db:migrate RAILS_ENV=test& rails db:seed & rails tailwindcss:build & npm run build & rake rswag:specs:swaggerize"
+    "project:build": "bundle install & rails db:drop & rails db:create & rails db:migrate & rails db:migrate RAILS_ENV=test & rails db:seed & rails tailwindcss:build & npm run build & rake rswag:specs:swaggerize"
   },
   "dependencies": {
     "@babel/preset-env": "^7.22.20",
@@ -22,6 +22,7 @@
     "add": "^2.0.6",
     "axios": "^1.5.0",
     "babel-loader": "^9.1.3",
+    "cors": "^2.8.5",
     "npm": "^10.1.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
