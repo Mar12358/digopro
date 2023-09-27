@@ -69,7 +69,7 @@ function Nav() {
           </li>
 
         </ul>
-        <p className="tiny">  &copy 2023  Aprendes inc.  </p>
+        <p className="tiny">  {`${String.fromCodePoint(0x00A9)}`} 2023  Aprendes inc.  </p>
 
       </div>
     </div>
