@@ -40,11 +40,11 @@ class Api::V1::ReservationsController < ApplicationController
 
     if @reservation.update(removed: true)
       respond_to do |format|
-        format.json { render json: { message: "Reservation removed successfully" }, status: :ok }
+        format.json { render json: { message: 'Reservation removed successfully' }, status: :ok }
       end
     else
       respond_to do |format|
-        format.json { render json: { message: "Unable to remove reservation" }, status: :unprocessable_entity }
+        format.json { render json: { message: 'Unable to remove reservation' }, status: :unprocessable_entity }
       end
     end
   end
