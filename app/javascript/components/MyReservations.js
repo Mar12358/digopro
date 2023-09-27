@@ -61,7 +61,7 @@ const MyReservations = () => {
             >
               {/* Find the corresponding lecture by matching lecture_id */}
               {allLecture.map((lecture) => (lecture.id === reservation.lecture_id ? (
-                <span className="text-sm pl-[1rem]" key={lecture.id}>
+                <span className="pl-[1rem] text-2xl font-bold " key={lecture.id}>
                   {lecture.name}
                 </span>
               ) : null))}
