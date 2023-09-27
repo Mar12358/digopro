@@ -38,6 +38,17 @@ class LectureService {
     );
     return response;
   }
+
+  static async getCurrentUser() {
+    const response = await request(
+      '/api/v1/users',
+      'GET',
+      {},
+      false,
+      false,
+    );
+    return response;
+  }
 }
 
 export default LectureService;
