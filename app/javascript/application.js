@@ -13,21 +13,17 @@ import DeleteLecture from './components/DeleteLecture'
 
 function App() {
   return (
-    <>
     <div className="container-column">
       <Nav />
       <Routes className="container-routes">
         <Route index element={<Lecture />} />
         <Route path="lectures" element={<Lecture />} />  
         <Route path="reserve" element={<Reserve />} />
-        <Route path="my_reservation" element={<MyReservations />} />
+        <Route path="my-reservations" element={<MyReservations />} />
         <Route path="add_lecture" element={<AddLecture />} />
         <Route path="delete_lecture" element={<DeleteLecture />} />
-
       </Routes>
     </div>
-    
-    </>
   );
 }
 

@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setAllLecture } from '../redux/lecture/lectureReducer';
 import LectureService from '../Service/classApi';
 import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
@@ -7,6 +10,8 @@ import showError from '../Ui/ErrorAlert';
 import BasicButtons from '../Ui/Button';
 
 const Reserve = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [startDate, setStartDate] = useState('');
   const [city, setCity] = useState('');
   const [lectures, setLectures] = useState([]);
@@ -22,6 +27,7 @@ const Reserve = () => {
           setLoading(false);
           notify('Lectures loaded successfully');
           setLectures(response);
+          dispatch(setAllLecture(response));
         } else {
           showError('Something went wrong!, try again');
         }
@@ -46,15 +52,18 @@ const Reserve = () => {
       const response = await LectureService.createReservation(userId, obj);
       if (response) {
         setLoading(false);
-        notify('Reservation created successfully');
+        // notify("Reservation created successfully");
         setStartDate('');
         setCity('');
         setSelectedLectureId('');
+        navigate('/my-reservations');
       } else {
         showError('Something went wrong!, try again');
+        setLoading(false);
       }
     } catch (error) {
       showError('Request failed!', error);
+      setLoading(false);
     }
   };
 
