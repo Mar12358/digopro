@@ -5,7 +5,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
-    get('list reservations') do
+    get('Get a list of reservations for a specific user_id') do
+      tags 'Reservations'
       response(200, 'successful') do
         let(:user_id) { '123' }
 
@@ -20,7 +21,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
 
-    post('create reservation') do
+    post('Create a reservation for a specific user_id') do
+      tags 'Reservations'
       # Define the request parameters here
       response(200, 'successful') do
         consumes 'application/json'
