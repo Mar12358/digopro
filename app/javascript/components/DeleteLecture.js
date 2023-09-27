@@ -2,8 +2,8 @@ import React from 'react';
 
 function DeleteLecture() {
   return (
-     <p> Hello DeleteLecture </p>
+    <p> Hello DeleteLecture </p>
   );
 }
 
-export default DeleteLecture
+export default DeleteLecture;

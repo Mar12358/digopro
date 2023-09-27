@@ -2,8 +2,8 @@ import React from 'react';
 
 function AddLecture() {
   return (
-     <p> Hello AddLecture </p>
+    <p> Hello AddLecture </p>
   );
 }
 
-export default AddLecture
+export default AddLecture;
