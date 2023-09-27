@@ -38,6 +38,17 @@ class LectureService {
     );
     return response;
   }
+
+  static async getReservation(id) {
+    const response = await request(
+      `/api/v1/users/${id}/reservations`,
+      'GET',
+      {},
+      false,
+      false,
+    );
+    return response;
+  }
 }
 
 export default LectureService;
