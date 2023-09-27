@@ -2,7 +2,8 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v1/lectures', type: :request do
   path '/api/v1/lectures' do
-    get('list lectures') do
+    get(' Get a list of lectures') do
+      tags 'Lectures'
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -15,7 +16,8 @@ RSpec.describe 'api/v1/lectures', type: :request do
       end
     end
 
-    post('create lecture') do
+    post('Create a lecture') do
+      tags 'Lectures'
       # Define the request parameters here
       response(200, 'successful') do
         consumes 'application/json'
@@ -26,8 +28,7 @@ RSpec.describe 'api/v1/lectures', type: :request do
             image_url: { type: :string },
             description: { type: :string },
             web_link: { type: :string },
-            price: { type: :number, format: :float },
-            lecture_id: { type: :number }
+            price: { type: :number, format: :float }
           },
           required: %w[lecture_id date city]
         }
@@ -48,9 +49,30 @@ RSpec.describe 'api/v1/lectures', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
-    get('show lecture') do
+    get('Get a specific lecture by its id') do
+      tags 'Lectures'
       response(200, 'successful') do
         let(:id) { '123' }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+  end
+
+  path '/api/v1/lectures/{id}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'id', in: :path, type: :string, description: 'lecture_id'
+    patch('Mark a specific Lecture as removed') do
+      tags 'Lectures'
+      response(200, 'successful') do
+        let(:id) { '1' }
 
         after do |example|
           example.metadata[:response][:content] = {
