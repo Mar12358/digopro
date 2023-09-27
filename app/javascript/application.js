@@ -4,11 +4,13 @@ import './controllers';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Reserve from './components/Reserve';
+import MyReservations from './components/MyReservations';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Reserve />} />
+      <Route path="/my-reservations" element={<MyReservations />} />
       {/* <Route path="/" element={<Home/>} /> */}
     </Routes>
   );
