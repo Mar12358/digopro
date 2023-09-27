@@ -1,0 +1,10 @@
+.container-column{
+  display:flex;
+  justify-content: flex-start;
+  border: 12px solid #f1f1f1;
+}
+
+.container-routes{
+  display:flex;
+  justify-content: flex-start;
+}
