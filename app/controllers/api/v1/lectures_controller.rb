@@ -39,4 +39,18 @@ class Api::V1::LecturesController < ApplicationController
   def reservation_params
     params.require(:lecture).permit(:name, :image_url, :description, :web_link, :price)
   end
+  
+  def update
+    @lecture = Lecture.find(params[:id])
+
+    if @lecture.update(removed: true)
+      respond_to do |format|
+        format.json { render json: { message: "Lecture removed successfully" }, status: :ok }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { message: "Unable to remove lecture" }, status: :unprocessable_entity }
+      end
+    end
+  end
 end

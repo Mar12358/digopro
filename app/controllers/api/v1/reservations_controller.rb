@@ -34,4 +34,18 @@ class Api::V1::ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:date, :city)
   end
+
+  def update
+    @reservation = Reservation.find(params[:id])
+
+    if @reservation.update(removed: true)
+      respond_to do |format|
+        format.json { render json: { message: "Reservation removed successfully" }, status: :ok }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: { message: "Unable to remove reservation" }, status: :unprocessable_entity }
+      end
+    end
+  end
 end
