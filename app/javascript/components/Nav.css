@@ -1,22 +1,21 @@
 
-.logo{
-  width:120px;
+.logo {
+  width: 120px;
   align-self: center;
   margin-bottom: 25%;
   margin-top: 25%;
 }
 
-.TabListContainer{
+.TabListContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
   width: 25%;
   height: 100vh;
-
 }
 
-.StyledNavLink{
+.StyledNavLink {
   display: block;
   color: white;
   text-transform: capitalize;
@@ -25,7 +24,7 @@
   padding: 5px;
   background-color: #96c036;
   width: 100%;
-  margin-left:12px;
+  margin-left: 12px;
 }
 
 .active {
