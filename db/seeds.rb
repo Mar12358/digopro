@@ -1,15 +1,8 @@
 users = [
   {
     "name": "Martin",
-  },
-  {
-    "name": "Edahi",
-  },
-  {
-    "name": "Christopher",
-  },
-  {
-    "name": "Nurbol",
+    "email": "gonzalez.martin.35@gmail.com",
+    "password": "123456"
   }
 ]
 
@@ -34,7 +27,7 @@ reservations = [
 ]
 
 users.each do |user|
-  User.create(name: user[:name])
+  User.create(name: user[:name], email: user[:email], password: user[:password])
 end
 
 lectures.each do |lecture|

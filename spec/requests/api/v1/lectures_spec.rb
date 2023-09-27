@@ -26,8 +26,7 @@ RSpec.describe 'api/v1/lectures', type: :request do
             image_url: { type: :string },
             description: { type: :string },
             web_link: { type: :string },
-            price: { type: :number, format: :float },
-            lecture_id: { type: :number }
+            price: { type: :number, format: :float }
           },
           required: %w[lecture_id date city]
         }
