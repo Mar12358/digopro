@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import LectureService from '../Service/classApi';
-import '../stylesheets/reservation.css';
-import Loader from '../Ui/Loader';
-import notify from '../Ui/SuccesAlert';
-import showError from '../Ui/ErrorAlert';
-import BasicButtons from '../Ui/Button';
+import React, { useEffect, useState } from "react";
+import LectureService from "../Service/classApi";
+import { useNavigate } from "react-router-dom";
+import "../stylesheets/reservation.css";
+import Loader from "../Ui/Loader";
+import { useDispatch } from "react-redux";
+import { setAllLecture } from "../redux/lecture/lectureReducer";
+import notify from "../Ui/SuccesAlert";
+import showError from "../Ui/ErrorAlert";
+import BasicButtons from "../Ui/Button";
 
 const Reserve = () => {
-  const [startDate, setStartDate] = useState('');
-  const [city, setCity] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [startDate, setStartDate] = useState("");
+  const [city, setCity] = useState("");
   const [lectures, setLectures] = useState([]);
-  const [selectedLectureId, setSelectedLectureId] = useState('');
+  const [selectedLectureId, setSelectedLectureId] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -20,13 +25,14 @@ const Reserve = () => {
         const response = await LectureService.getAllLectures();
         if (response) {
           setLoading(false);
-          notify('Lectures loaded successfully');
+          notify("Lectures loaded successfully");
           setLectures(response);
+          dispatch(setAllLecture(response));
         } else {
-          showError('Something went wrong!, try again');
+          showError("Something went wrong!, try again");
         }
       } catch (error) {
-        showError('Request failed!', error);
+        showError("Request failed!", error);
         setLoading(false);
       }
     };
@@ -46,15 +52,18 @@ const Reserve = () => {
       const response = await LectureService.createReservation(userId, obj);
       if (response) {
         setLoading(false);
-        notify('Reservation created successfully');
-        setStartDate('');
-        setCity('');
-        setSelectedLectureId('');
+        // notify("Reservation created successfully");
+        setStartDate("");
+        setCity("");
+        setSelectedLectureId("");
+        navigate("/my-reservations");
       } else {
-        showError('Something went wrong!, try again');
+        showError("Something went wrong!, try again");
+        setLoading(false);
       }
     } catch (error) {
-      showError('Request failed!', error);
+      showError("Request failed!", error);
+      setLoading(false);
     }
   };
 
