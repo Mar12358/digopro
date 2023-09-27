@@ -6,9 +6,10 @@ const lectureSlice = createSlice({
     allLecture: [],
   },
   reducers: {
-    setAllLecture: (state, action) => {
-      state.allLecture = action.payload;
-    },
+    setAllLecture: (state, action) => ({
+      ...state,
+      allLecture: action.payload,
+    }),
   },
 });
 

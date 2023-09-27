@@ -1,7 +1,6 @@
 import { request } from '../hook/Api';
 
 class LectureService {
-
   static async createLectures(lectureData) {
     const response = await request(
       '/api/v1/lectures',
@@ -39,7 +38,7 @@ class LectureService {
     );
     return response;
   }
-  
+
   static async getReservation(id) {
     const response = await request(
       `/api/v1/users/${id}/reservations`,

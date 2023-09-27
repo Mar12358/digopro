@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import LectureService from "../Service/classApi";
-import { useDispatch, useSelector } from "react-redux";
-import { setAllReservation } from "../redux/reservation/reservationReducer";
-import Loader from "../Ui/Loader";
-import notify from "../Ui/SuccesAlert";
-import showError from "../Ui/ErrorAlert";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import LectureService from '../Service/classApi';
+import { setAllReservation } from '../redux/reservation/reservationReducer';
+import Loader from '../Ui/Loader';
+import notify from '../Ui/SuccesAlert';
+import showError from '../Ui/ErrorAlert';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -21,25 +21,25 @@ const MyReservations = () => {
         if (response && response.length > 0) {
           // Sort reservations in descending order based on the created_at date
           response.sort(
-            (a, b) => new Date(b.created_at) - new Date(a.created_at)
+            (a, b) => new Date(b.created_at) - new Date(a.created_at),
           );
           setLoading(false);
           setReservationsData(response);
           dispatch(setAllReservation(response));
-          notify("Reservation loaded successfully");
+          notify('Reservation loaded successfully');
         } else {
           setLoading(false);
-          showError("No Reservation found");
+          showError('No Reservation found');
         }
       } catch (error) {
         setLoading(false);
-        showError("Request failed!", error);
+        showError('Request failed!', error);
       }
     };
     allReservation();
   }, [username, dispatch]);
 
-  const handleDeleteReservation = (reservationId) => {
+  const handleDeleteReservation = () => {
     // Handle delete logic here
   };
 
@@ -60,16 +60,16 @@ const MyReservations = () => {
               className="px-[5rem] my-[1rem] rounded-[1rem] py-[2rem] border-y-4 hover:border-blue-500"
             >
               {/* Find the corresponding lecture by matching lecture_id */}
-              {allLecture.map((lecture) =>
-                lecture.id === reservation.lecture_id ? (
-                  <span className="text-sm pl-[1rem]" key={lecture.id}>
-                    {lecture.name}
-                  </span>
-                ) : null
-              )}
+              {allLecture.map((lecture) => (lecture.id === reservation.lecture_id ? (
+                <span className="text-sm pl-[1rem]" key={lecture.id}>
+                  {lecture.name}
+                </span>
+              ) : null))}
               <span className="md:text-sm md:pl-[1rem] pl-2px text-xs">{reservation.date}</span>
               <span className="md:text-sm md:pl-[1rem]  pl-2px text-xs">
-                Location: {reservation.city}
+                Location:
+                {' '}
+                {reservation.city}
               </span>
               <button
                 onClick={() => handleDeleteReservation(reservation.id)}
