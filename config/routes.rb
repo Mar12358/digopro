@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   
@@ -6,9 +7,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :lectures, only: [:index, :show, :create]
+      resources :lectures, only: [:index, :show, :create, :update]
       resources :users, only: [:index, :show] do
-        resources :reservations, only: [:index, :create]
+        resources :reservations, only: [:index, :create, :update]
       end
     end
   end

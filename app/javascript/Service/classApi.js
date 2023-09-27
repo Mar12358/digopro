@@ -39,6 +39,17 @@ class LectureService {
     return response;
   }
 
+  static async getCurrentUser() {
+    const response = await request(
+      '/api/v1/users',
+      'GET',
+      {},
+      false,
+      false,
+    );
+    return response;
+  }
+
   static async getReservation(id) {
     const response = await request(
       `/api/v1/users/${id}/reservations`,

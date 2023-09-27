@@ -15,6 +15,7 @@ const Reserve = () => {
   const [startDate, setStartDate] = useState('');
   const [city, setCity] = useState('');
   const [lectures, setLectures] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
   const [selectedLectureId, setSelectedLectureId] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -25,9 +26,22 @@ const Reserve = () => {
         const response = await LectureService.getAllLectures();
         if (response) {
           setLoading(false);
-          notify('Lectures loaded successfully');
           setLectures(response);
           dispatch(setAllLecture(response));
+        } else {
+          showError('Something went wrong!, try again');
+        }
+      } catch (error) {
+        showError('Request failed!', error);
+        setLoading(false);
+      }
+
+      try {
+        const response = await LectureService.getCurrentUser();
+        if (response) {
+          setLoading(false);
+          setCurrentUser(response);
+          notify('Session loaded successfully');
         } else {
           showError('Something went wrong!, try again');
         }
@@ -48,8 +62,7 @@ const Reserve = () => {
         date: startDate,
         city,
       };
-      const userId = 1;
-      const response = await LectureService.createReservation(userId, obj);
+      const response = await LectureService.createReservation(currentUser, obj);
       if (response) {
         setLoading(false);
         // notify("Reservation created successfully");

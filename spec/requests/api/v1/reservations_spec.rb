@@ -5,7 +5,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
     # You'll want to customize the parameter types...
     parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
 
-    get('list reservations') do
+    get('Get a list of reservations for a specific user_id') do
+      tags 'Reservations'
       response(200, 'successful') do
         let(:user_id) { '123' }
 
@@ -20,7 +21,8 @@ RSpec.describe 'api/v1/reservations', type: :request do
       end
     end
 
-    post('create reservation') do
+    post('Create a reservation for a specific user_id') do
+      tags 'Reservations'
       # Define the request parameters here
       response(200, 'successful') do
         consumes 'application/json'
@@ -33,6 +35,27 @@ RSpec.describe 'api/v1/reservations', type: :request do
           },
           required: %w[lecture_id date city]
         }
+
+        after do |example|
+          example.metadata[:response][:content] = {
+            'application/json' => {
+              example: JSON.parse(response.body, symbolize_names: true)
+            }
+          }
+        end
+        run_test!
+      end
+    end
+  end
+
+  path '/api/v1/users/{user_id}/reservations/{id}' do
+    # You'll want to customize the parameter types...
+    parameter name: 'user_id', in: :path, type: :string, description: 'user_id'
+    parameter name: 'id', in: :path, type: :string, description: 'reservation_id'
+    patch('Mark a specific Reservetion as removed') do
+      tags 'Reservations'
+      response(200, 'successful') do
+        let(:user_id) { '123' }
 
         after do |example|
           example.metadata[:response][:content] = {
