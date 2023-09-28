@@ -114,7 +114,7 @@ const AddLecture = () => {
         </label>
 
         <button className="form-button" type="submit" id="btn-submit">
-          Get In Touch
+          Create Lecture
         </button>
       </form>
 

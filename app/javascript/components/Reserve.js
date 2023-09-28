@@ -2,23 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
-import { setCurrentUser } from '../redux/user/userReducer';
 import LectureService from '../Service/classApi';
 import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
-import notify from '../Ui/SuccesAlert';
+// import notify from '../Ui/SuccesAlert';
 import showError from '../Ui/ErrorAlert';
-import BasicButtons from '../Ui/Button';
 
 const Reserve = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState('');
   const [city, setCity] = useState('');
-  const [lectures, setLectures] = useState([]);
   const [selectedLectureId, setSelectedLectureId] = useState('');
   const [loading, setLoading] = useState(false);
   const { currentUser } = useSelector((state) => state.currentUser);
+  const { allLecture } = useSelector((state) => state.lecture);
 
   useEffect(() => {
     const getall = async () => {
@@ -27,22 +25,7 @@ const Reserve = () => {
         const response = await LectureService.getAllLectures();
         if (response) {
           setLoading(false);
-          setLectures(response);
           dispatch(setAllLecture(response));
-        } else {
-          showError('Something went wrong!, try again');
-        }
-      } catch (error) {
-        showError('Request failed!', error);
-        setLoading(false);
-      }
-
-      try {
-        const response = await LectureService.getCurrentUser();
-        if (response) {
-          setLoading(false);
-          dispatch(setCurrentUser(response));
-          notify('Session loaded successfully');
         } else {
           showError('Something went wrong!, try again');
         }
@@ -66,7 +49,7 @@ const Reserve = () => {
       const response = await LectureService.createReservation(currentUser, obj);
       if (response) {
         setLoading(false);
-        // notify("Reservation created successfully");
+        // notify('Reservation created successfully');
         setStartDate('');
         setCity('');
         setSelectedLectureId('');
@@ -101,6 +84,7 @@ const Reserve = () => {
               value={selectedLectureId}
               onChange={(e) => setSelectedLectureId(e.target.value)}
               className="md:w-[50rem] px-[1rem] md:border md:h-[5rem] h-[3rem]  rounded-[1rem] w-full "
+              required
             >
               <option
                 value=""
@@ -108,7 +92,7 @@ const Reserve = () => {
               >
                 Select a Lecture
               </option>
-              {lectures.map((item) => (
+              {allLecture.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.name}
                 </option>
@@ -122,6 +106,7 @@ const Reserve = () => {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem] pt- w-full md:w-[50rem]"
+              required
             />
             <input
               type="text"
@@ -129,9 +114,12 @@ const Reserve = () => {
               value={city}
               onChange={(e) => setCity(e.target.value)}
               className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-full md:w-[50rem] pb-[2rem]"
+              required
             />
             <div className="mt-[0.5rem] flex justify-center md:justify-start">
-              <BasicButtons submit={handleAddReservation} />
+              <button className="form-button" type="submit" id="btn-submit">
+                Create Reservation
+              </button>
             </div>
           </div>
         </form>
