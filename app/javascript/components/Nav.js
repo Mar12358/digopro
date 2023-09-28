@@ -10,31 +10,31 @@ function Nav() {
         to="/lectures"
         className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
       >
-        Lectures
+        LECTURES
       </NavLink>
       <NavLink
         to="/reserve"
         className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
       >
-        Reserve form
+        RESERVE FORM
       </NavLink>
       <NavLink
         to="/my-reservations"
         className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
       >
-        My Reservations
+        MY RESERVATIONS
       </NavLink>
       <NavLink
         to="/add_lecture"
         className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
       >
-        Add Lecture
+        ADD LECTURE
       </NavLink>
       <NavLink
         to="/delete_lecture"
         className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
       >
-        Delete Lecture
+        DELETE LECTURE
       </NavLink>
 
       <div className="social-group">
