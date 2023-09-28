@@ -1,8 +1,62 @@
 import './Nav.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import LectureService from '../Service/classApi';
+import { setAllReservation } from '../redux/reservation/reservationReducer';
+import showError from '../Ui/ErrorAlert';
+import { setCurrentUser } from '../redux/user/userReducer';
+import { setAllLecture } from '../redux/lecture/lectureReducer';
+// import notify from '../Ui/SuccesAlert';
 
-function Nav() {
+const Nav = () => {
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.currentUser);
+
+  useEffect(() => {
+    const getall = async () => {
+      try {
+        const response = await LectureService.getAllLectures();
+        if (response) {
+          dispatch(setAllLecture(response));
+          // notify('Lectures loaded successfully');
+        } else {
+          showError('Something went wrong!, try again');
+        }
+      } catch (error) {
+        showError('Request failed!', error);
+      }
+
+      try {
+        const response = await LectureService.getCurrentUser();
+        if (response) {
+          dispatch(setCurrentUser(response));
+          // notify('Session loaded successfully');
+        } else {
+          showError('Something went wrong!, try again');
+        }
+      } catch (error) {
+        showError('Request failed!', error);
+      }
+
+      try {
+        const response = await LectureService.getReservation(currentUser);
+        if (response && response.length > 0) {
+          // Sort reservations in descending order based on the created_at date
+          response.sort(
+            (a, b) => new Date(b.created_at) - new Date(a.created_at),
+          );
+          dispatch(setAllReservation(response));
+        } else {
+          showError('No Reservation found');
+        }
+      } catch (error) {
+        // showError('Request failed!', error);
+      }
+    };
+    getall();
+  }, [currentUser, dispatch]);
+
   return (
     <div className="TabListContainer">
       <img src="/images/planet.jpg" alt="My_Image" className="logo" />
@@ -80,6 +134,6 @@ function Nav() {
       </div>
     </div>
   );
-}
+};
 
 export default Nav;

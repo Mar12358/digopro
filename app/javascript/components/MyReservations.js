@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import LectureService from '../Service/classApi';
 import { setAllReservation } from '../redux/reservation/reservationReducer';
 import Loader from '../Ui/Loader';
-import notify from '../Ui/SuccesAlert';
+// import notify from '../Ui/SuccesAlert';
 import showError from '../Ui/ErrorAlert';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const [reservationsData, setReservationsData] = useState([]);
   const { allLecture } = useSelector((state) => state.lecture);
+  const { allReservation } = useSelector((state) => state.reservation);
   const { currentUser } = useSelector((state) => state.currentUser);
 
   useEffect(() => {
@@ -24,16 +24,15 @@ const MyReservations = () => {
             (a, b) => new Date(b.created_at) - new Date(a.created_at),
           );
           setLoading(false);
-          setReservationsData(response);
           dispatch(setAllReservation(response));
-          notify('Reservation loaded successfully');
+          // notify('Reservation loaded successfully');
         } else {
           setLoading(false);
           showError('No Reservation found');
         }
       } catch (error) {
         setLoading(false);
-        showError('Request failed!', error);
+        // showError('Request failed!', error);
       }
     };
     allReservation();
@@ -54,7 +53,7 @@ const MyReservations = () => {
         </div>
       ) : (
         <ul className="md:w-[50rem] justify-center items-center flex flex-col">
-          {reservationsData.map((reservation) => (
+          {allReservation.map((reservation) => (
             <li
               key={reservation.id}
               className="px-[5rem] my-[1rem] rounded-[1rem] py-[2rem] border-y-4 hover:border-blue-500"
