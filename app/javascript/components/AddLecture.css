@@ -1,10 +1,5 @@
 @media only screen and (max-width: 1235px) {
-  
-   
-
-
-
-   .wrapper-add-lecture {
+  .wrapper-add-lecture {
     display: flex;
     flex-direction: column;
     color: white;
@@ -14,175 +9,168 @@
     align-items: center;
     background: #96c036 url(../../../public/images/planet.png) no-repeat center center; /* Background color and image */
     background-size: cover; /* Adjust the size as needed */
-    background-blend-mode: multiply; /* Blend mode to make the image appear lighter */  
-    
+    background-blend-mode: multiply; /* Blend mode to make the image appear lighter */
   }
 
-   
-   .content {
-     font-family: 'Inter', sans-serif;
-     font-style: normal;
-     font-weight: 700;
-     font-size: 32px;
-     line-height: 44px;
-     text-align: center;
-     color: rgb(215, 250, 248);
-     width: 100%;
-   }
+  .content {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    color: rgb(215, 250, 248);
+    width: 100%;
+  }
 
-   .form-add-lecture {
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     width: 90%;
-   }
- 
-   .items-form {
-     margin-bottom: 24px;
-     border-width: 1px;
-     border-color: #dbd8d7;
-     border-radius: 5px;
-     color: gray;
-     height:30px;
-     width: 100%;
-   }
-
-   .error-msg {
-     font-family: 'Roboto', sans-serif;
-     font-style: normal;
-     font-weight: 400;
-     font-size: 15px;
-     line-height: 24px;
-     color: #979493;
-   }
-
-   .form-button {
-     font-family: 'Inter', sans-serif;
-     font-style: normal;
-     font-weight: 700;
-     font-size: 17px;
-     line-height: 24px;
-     background: #ba4d00 !important ;
-     color: white;
-     border-radius: 5px;
-     border: 1px solid black;
-     padding: 12px;
-     width: 50%;
-   }
- 
-   .form-button:hover {
-     background: #fff5e1 !important;
-     color: #b84300;
-     border: 1px solid #ff6b00;
-     border-radius: 5px;
-   }
-   .textarea {
-  
-     margin-bottom: 24px;
-     background: #fbf8f7;
-     height: 114px;
-     width: 100%;
-     padding: 12px;
-     border-radius: 5px;
-     color: black;
-     font-size: 1rem;
-   }
-
-   .label-size {
-     width: 90%;
-   }
-
- }
- 
- 
- @media only screen and (min-width: 1235px) {
-   
-   .wrapper-add-lecture {
-     display: flex;
-     flex-direction: column;
-     background-color: #96c036;
-     color: grey;
-     font-size: 35px;
-     width:75%;
-     padding: 24px;
-     align-items: center;
-   }
- 
-   .content {
-     width: 90%;
-     font-family: 'Inter', sans-serif;
-     font-style: normal;
-     font-weight: 700;
-     font-size: 40px;
-     line-height: 52px;
-     display: flex;
-     align-items: center;
-     color: #262626;
-     padding-right: 24px;
-     margin-bottom: 24px;
-   }
- 
-   .form-add-lecture {
+  .form-add-lecture {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 90%;
   }
- 
-   .items-form {
-     
-     margin-bottom: 24px;
-     border-top: none;
-     border-left: none;
-     border-right: none;
-     border-width: 1px;
-     border-color: #dbd8d7;
-     border-radius: 5px;
-     height: 48px;
-   }
-   .error-msg {
-     font-family: 'Roboto', sans-serif;
-     font-style: normal;
-     font-weight: 400;
-     font-size: 15px;
-     line-height: 24px;
-     color: #979493;
-   }
- 
-   
-   .form-button {
-     font-family: 'Inter', sans-serif;
-     font-style: normal;
-     font-weight: 700;
-     font-size: 17px;
-     line-height: 24px;
-     background: #ba4d00 !important;
-     color: white;
-     border: none;
-     width: 122px;
-     height: 48px;
-     border-radius: 5px;
-   }
- 
-   .form-button:hover {
-     color: #b84300;
-     background: #fff5e1 !important;
-     border: 1px solid #bd6c3d;
-     border-radius: 5px;
-   }
- 
-   .textarea {
-     border-top: none;
-     border-left: none;
-     border-right: none;
-     border-bottom: none;
-     margin-bottom: 24px;
-     background: #fbf8f7;
-     height: 114px;
-     width: 100%;
-     padding: 12px;
-     border-radius: 5px;
-     color: black;
-   }
 
- }
+  .items-form {
+    margin-bottom: 24px;
+    border-width: 1px;
+    border-color: #dbd8d7;
+    border-radius: 5px;
+    color: gray;
+    height: 30px;
+    width: 100%;
+  }
+
+  .error-msg {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #979493;
+  }
+
+  .form-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    background: #ba4d00 !important;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 12px;
+    width: 50%;
+  }
+
+  .form-button:hover {
+    background: #fff5e1 !important;
+    color: #b84300;
+    border: 1px solid #ff6b00;
+    border-radius: 5px;
+  }
+
+  .textarea {
+    margin-bottom: 24px;
+    background: #fbf8f7;
+    height: 114px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+  }
+
+  .label-size {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 1235px) {
+  .wrapper-add-lecture {
+    display: flex;
+    flex-direction: column;
+    background-color: #96c036;
+    color: grey;
+    font-size: 35px;
+    width: 75%;
+    padding: 24px;
+    align-items: center;
+  }
+
+  .content {
+    width: 90%;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    color: #262626;
+    padding-right: 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-add-lecture {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+  }
+
+  .items-form {
+    margin-bottom: 24px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-width: 1px;
+    border-color: #dbd8d7;
+    border-radius: 5px;
+    height: 48px;
+  }
+
+  .error-msg {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #979493;
+  }
+
+  .form-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    background: #ba4d00 !important;
+    color: white;
+    border: none;
+    width: 122px;
+    height: 48px;
+    border-radius: 5px;
+  }
+
+  .form-button:hover {
+    color: #b84300;
+    background: #fff5e1 !important;
+    border: 1px solid #bd6c3d;
+    border-radius: 5px;
+  }
+
+  .textarea {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: 24px;
+    background: #fbf8f7;
+    height: 114px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    color: black;
+  }
+}
