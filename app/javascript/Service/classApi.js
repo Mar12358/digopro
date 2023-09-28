@@ -60,6 +60,28 @@ class LectureService {
     );
     return response;
   }
+
+  static async removeReservation(userId, reservationId) {
+    const response = await request(
+      `/api/v1/users/${userId}/reservations/${reservationId}`,
+      'PATCH',
+      {},
+      false,
+      false,
+    );
+    return response;
+  }
+
+  static async removeLecture(lectureId) {
+    const response = await request(
+      `/api/v1/lectures/${lectureId}`,
+      'PATCH',
+      {},
+      false,
+      false,
+    );
+    return response;
+  }
 }
 
 export default LectureService;

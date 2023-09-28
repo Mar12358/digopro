@@ -8,16 +8,16 @@ import showError from '../Ui/ErrorAlert';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
-  const username = 1;
   const [loading, setLoading] = useState(false);
   const [reservationsData, setReservationsData] = useState([]);
   const { allLecture } = useSelector((state) => state.lecture);
+  const { currentUser } = useSelector((state) => state.currentUser);
 
   useEffect(() => {
     const allReservation = async () => {
       setLoading(true);
       try {
-        const response = await LectureService.getReservation(username);
+        const response = await LectureService.getReservation(currentUser);
         if (response && response.length > 0) {
           // Sort reservations in descending order based on the created_at date
           response.sort(
@@ -37,10 +37,10 @@ const MyReservations = () => {
       }
     };
     allReservation();
-  }, [username, dispatch]);
+  }, [currentUser, dispatch]);
 
   const handleDeleteReservation = () => {
-    // Handle delete logic here
+    // Handle delete logic here <<<--- PATCH request removeReservation(id, currentUser)
   };
 
   return (

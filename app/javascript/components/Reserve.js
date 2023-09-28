@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
+import { setCurrentUser } from '../redux/user/userReducer';
 import LectureService from '../Service/classApi';
 import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
@@ -15,9 +16,9 @@ const Reserve = () => {
   const [startDate, setStartDate] = useState('');
   const [city, setCity] = useState('');
   const [lectures, setLectures] = useState([]);
-  const [currentUser, setCurrentUser] = useState([]);
   const [selectedLectureId, setSelectedLectureId] = useState('');
   const [loading, setLoading] = useState(false);
+  const { currentUser } = useSelector((state) => state.currentUser);
 
   useEffect(() => {
     const getall = async () => {
@@ -40,7 +41,7 @@ const Reserve = () => {
         const response = await LectureService.getCurrentUser();
         if (response) {
           setLoading(false);
-          setCurrentUser(response);
+          dispatch(setCurrentUser(response));
           notify('Session loaded successfully');
         } else {
           showError('Something went wrong!, try again');
@@ -51,7 +52,7 @@ const Reserve = () => {
       }
     };
     getall();
-  }, []);
+  }, [dispatch]);
 
   const handleAddReservation = async (e) => {
     e.preventDefault();
