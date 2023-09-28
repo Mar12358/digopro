@@ -1,99 +1,99 @@
-import './AddLecture.css'
-import React from 'react';
-
-import { useState } from 'react';
-
+import './AddLecture.css';
+import React, { useState } from 'react';
 
 function AddLecture() {
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+    const { name } = event.target;
+    const { value } = event.target;
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputs);
-  }
+  };
 
   return (
-    
-    
-    <section class="wrapper-add-lecture" id="contact">
-    
-      <h2 class="content">We are always interested in creating new projects,
-             so if you'd like to add one lecture please fill this form.</h2>
+
+    <section className="wrapper-add-lecture" id="contact">
+
+      <h2 className="content">
+        We are always interested in creating new projects,
+        so if you would like to add one lecture please fill this form.
+      </h2>
       <form className="form-add-lecture" onSubmit={handleSubmit}>
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="lecturename"
-          placeholder="Lecture name"
-          value={inputs.lecturename || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="imageurl"
-          placeholder="Image url"
-          value={inputs.imageurl || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="websitelink"
-          placeholder="Website link"
-          value={inputs.websitelink || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
+        <label className="label-size" htmlFor="item-1">
           <input
+            id="item-1"
             className="items-form"
-            type="number" 
-            name="price" 
+            type="text"
+            name="lecturename"
+            placeholder="Lecture name"
+            value={inputs.lecturename || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-2">
+          <input
+            id="item-2"
+            className="items-form"
+            type="text"
+            name="imageurl"
+            placeholder="Image url"
+            value={inputs.imageurl || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-3">
+          <input
+            id="item-3"
+            className="items-form"
+            type="text"
+            name="websitelink"
+            placeholder="Website link"
+            value={inputs.websitelink || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-4">
+          <input
+            id="item-4"
+            className="items-form"
+            type="number"
+            name="price"
             placeholder="Price"
-            value={inputs.price || ""} 
+            value={inputs.price || ''}
             onChange={handleChange}
           />
-          </label>
+        </label>
 
-           <label className="label-size">
+        <label className="label-size" htmlFor="item-5">
           <textarea
+            id="item-5"
             className="textarea"
-            type="textarea" 
-            name="description" 
+            type="textarea"
+            name="description"
             placeholder="Description"
-            value={inputs.description || ""} 
+            value={inputs.description || ''}
             onChange={handleChange}
           />
-          </label>
+        </label>
 
-          <button className="form-button" type="submit" id="btn-submit">
-            Get In Touch
-          </button>
+        <button className="form-button" type="submit" id="btn-submit">
+          Get In Touch
+        </button>
       </form>
-    
-    </section>
-    
 
-    
-  )
+    </section>
+
+  );
 }
 
 export default AddLecture;

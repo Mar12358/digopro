@@ -51,7 +51,7 @@ const Reserve = () => {
       }
     };
     getall();
-  }, []);
+  }, [dispatch]);
 
   const handleAddReservation = async (e) => {
     e.preventDefault();
