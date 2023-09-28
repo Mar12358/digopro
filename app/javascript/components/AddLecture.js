@@ -1,17 +1,42 @@
 import './AddLecture.css';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import LectureService from '../Service/classApi';
+import showError from '../Ui/ErrorAlert';
 
-function AddLecture() {
-  const [inputs, setInputs] = useState({});
+const AddLecture = () => {
+  const navigate = useNavigate();
+  const [lectureName, setLectureName] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [lectureDesctiption, setLectureDescription] = useState('');
+  const [lectureWeb, setLectureWeb] = useState('');
+  const [lecturePrice, setLecturePrice] = useState('');
 
-  const handleChange = (event) => {
-    const { name } = event.target;
-    const { value } = event.target;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const obj = {
+        name: lectureName,
+        image_url: imageUrl,
+        description: lectureDesctiption,
+        web_link: lectureWeb,
+        price: lecturePrice,
+      };
+      const response = await LectureService.createLectures(obj);
+      if (response) {
+        // notify("Lecture created successfully");
+        setLectureName('');
+        setImageUrl('');
+        setLectureDescription('');
+        setLectureWeb('');
+        setLecturePrice('');
+        navigate('/lectures');
+      } else {
+        showError('Something went wrong!, try again');
+      }
+    } catch (error) {
+      showError('Lecture creation failed!', error);
+    }
   };
 
   return (
@@ -30,8 +55,8 @@ function AddLecture() {
             type="text"
             name="lecturename"
             placeholder="Lecture name"
-            value={inputs.lecturename || ''}
-            onChange={handleChange}
+            value={lectureName}
+            onChange={(e) => setLectureName(e.target.value)}
             required
           />
         </label>
@@ -43,8 +68,8 @@ function AddLecture() {
             type="text"
             name="imageurl"
             placeholder="Image url"
-            value={inputs.imageurl || ''}
-            onChange={handleChange}
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
             required
           />
         </label>
@@ -56,8 +81,8 @@ function AddLecture() {
             type="text"
             name="websitelink"
             placeholder="Website link"
-            value={inputs.websitelink || ''}
-            onChange={handleChange}
+            value={lectureWeb}
+            onChange={(e) => setLectureWeb(e.target.value)}
             required
           />
         </label>
@@ -69,8 +94,9 @@ function AddLecture() {
             type="number"
             name="price"
             placeholder="Price"
-            value={inputs.price || ''}
-            onChange={handleChange}
+            value={lecturePrice}
+            onChange={(e) => setLecturePrice(e.target.value)}
+            required
           />
         </label>
 
@@ -81,8 +107,9 @@ function AddLecture() {
             type="textarea"
             name="description"
             placeholder="Description"
-            value={inputs.description || ''}
-            onChange={handleChange}
+            value={lectureDesctiption}
+            onChange={(e) => setLectureDescription(e.target.value)}
+            required
           />
         </label>
 
@@ -94,6 +121,6 @@ function AddLecture() {
     </section>
 
   );
-}
+};
 
 export default AddLecture;
