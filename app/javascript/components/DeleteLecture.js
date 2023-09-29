@@ -2,22 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './DeleteLecture.css';
 
+import { useDispatch } from 'react-redux';
 import LectureService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
-import { useDispatch } from 'react-redux';
 import { removeLecture, deleteItemAxios } from '../redux/messages/messagesSlice';
 
-
-
 function DeleteLecture(props) {
+  const dispatch = useDispatch();
 
   const handleDeleteLecture = async (reservationId) => {
-  
     try {
       const response = await LectureService.removeLecture(reservationId);
       if (response.message) {
-        dispatch(removeLecture({ id }));        
+        dispatch(removeLecture(reservationId));
       } else {
         showError('Request failed!');
       }
@@ -26,7 +24,6 @@ function DeleteLecture(props) {
     }
   };
 
-  const dispatch = useDispatch();
   const {
     id,
     name,
@@ -84,7 +81,7 @@ function DeleteLecture(props) {
         </button>
         <button
           type="submit"
-          onClick={() => {            
+          onClick={() => {
             handleDeleteLecture(id);
           }}
         >

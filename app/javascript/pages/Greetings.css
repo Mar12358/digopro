@@ -1,7 +1,7 @@
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width:75%;
+  width: 75%;
 }
