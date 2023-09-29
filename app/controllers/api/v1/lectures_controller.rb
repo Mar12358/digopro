@@ -36,6 +36,18 @@ class Api::V1::LecturesController < ApplicationController
     end
   end
 
+  def destroy
+
+    @lecture = Lecture.find(params[:id])
+    @lecture.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_url, notice: 'Lecture was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+
   def reservation_params
     params.require(:lecture).permit(:name, :image_url, :description, :web_link, :price)
   end
