@@ -56,7 +56,6 @@ function Greeting(props) {
         <button
           type="submit"
           onClick={() => {
-            console.log('id', id);
             dispatch(removeLecture({ id }));
             dispatch(deleteItemAxios({ id }));
           }}
@@ -73,12 +72,19 @@ Greeting.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   image_url: PropTypes.string,
+  description: PropTypes.string,
+  web_link: PropTypes.string,
+  price: PropTypes.string,
 };
 
 Greeting.defaultProps = {
   id: 'none',
   name: 'none',
   image_url: 'none',
+  description: 'none',
+  web_link: 'none',
+  price: 'none',
+
 };
 
 export default Greeting;

@@ -2,8 +2,8 @@ import './AddLecture.css';
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addLecture, addItemAxios, fetchMessages } from '../redux/messages/messagesSlice';
-import { useNavigate } from "react-router-dom";
 
 function AddLecture() {
   const navigate = useNavigate();
@@ -46,7 +46,6 @@ function AddLecture() {
     dispatch(fetchMessages());
 
     navigate('/');
-
   };
 
   return (
