@@ -1,9 +1,10 @@
 import './AddLecture.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { addLecture, addItemAxios, fetchMessages } from '../redux/messages/messagesSlice';
+import { useNavigate } from "react-router-dom";
 
 function AddLecture() {
   const navigate = useNavigate();
@@ -15,6 +16,13 @@ function AddLecture() {
   const [price, setPrice] = useState('');
 
   const [inputs, setInputs] = useState({});
+
+  useEffect(() => {
+    // Check the status from the Redux store
+    if (status === 'idle') {
+      dispatch(fetchMessages());
+    }
+  }, [status, dispatch]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -46,6 +54,7 @@ function AddLecture() {
     dispatch(fetchMessages());
 
     navigate('/');
+
   };
 
   return (
