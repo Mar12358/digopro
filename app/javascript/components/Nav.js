@@ -11,8 +11,8 @@ import { setAllLecture } from '../redux/lecture/lectureReducer';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.currentUser);
-
+  //const { currentUser } = useSelector((state) => state.currentUser);
+  const currentUser = 1;
   useEffect(() => {
     const getall = async () => {
       try {
