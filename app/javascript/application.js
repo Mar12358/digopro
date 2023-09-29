@@ -9,7 +9,7 @@ import Nav from './components/Nav';
 import Lecture from './components/Lecture';
 import MyReservations from './components/MyReservations';
 import AddLecture from './components/AddLecture';
-import DeleteLecture from './components/DeleteLecture';
+import Greetings from './pages/Greetings';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="reserve" element={<Reserve />} />
         <Route path="my-reservations" element={<MyReservations />} />
         <Route path="add_lecture" element={<AddLecture />} />
-        <Route path="delete_lecture" element={<DeleteLecture />} />
+        <Route path="delete_lecture" element={<Greetings />} />
       </Routes>
     </div>
   );

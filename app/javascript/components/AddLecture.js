@@ -1,42 +1,54 @@
 import './AddLecture.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import LectureService from '../Service/classApi';
-import showError from '../Ui/ErrorAlert';
+import { addLecture, addItemAxios, fetchMessages } from '../redux/messages/messagesSlice';
 
-const AddLecture = () => {
+function AddLecture() {
   const navigate = useNavigate();
-  const [lectureName, setLectureName] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
-  const [lectureDesctiption, setLectureDescription] = useState('');
-  const [lectureWeb, setLectureWeb] = useState('');
-  const [lecturePrice, setLecturePrice] = useState('');
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [imageUrl, setimageUrl] = useState('');
+  const [description, setDescription] = useState('');
+  const [webLink, setwebLink] = useState('');
+  const [price, setPrice] = useState('');
 
-  const handleSubmit = async (event) => {
+  const [inputs, setInputs] = useState({});
+
+  useEffect(() => {
+    dispatch(fetchMessages());
+  }, [dispatch]);
+
+  const handleChange = (event) => {
     event.preventDefault();
-    try {
-      const obj = {
-        name: lectureName,
-        image_url: imageUrl,
-        description: lectureDesctiption,
-        web_link: lectureWeb,
-        price: lecturePrice,
-      };
-      const response = await LectureService.createLectures(obj);
-      if (response) {
-        // notify("Lecture created successfully");
-        setLectureName('');
-        setImageUrl('');
-        setLectureDescription('');
-        setLectureWeb('');
-        setLecturePrice('');
-        navigate('/lectures');
-      } else {
-        showError('Something went wrong!, try again');
-      }
-    } catch (error) {
-      showError('Lecture creation failed!', error);
-    }
+    const eventName = event.target.name;
+    const { value } = event.target;
+    setInputs((values) => ({ ...values, [eventName]: value }));
+    setName(inputs.name);
+    setimageUrl(inputs.imageUrl);
+    setDescription(inputs.description);
+    setwebLink(inputs.webLink);
+    setPrice(inputs.price);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch(addLecture({
+      name, imageUrl, description, webLink, price,
+    }));
+
+    dispatch(addItemAxios({
+      name,
+      imageUrl,
+      description,
+      webLink,
+      price,
+    }));
+
+    navigate('/');
+    dispatch(fetchMessages());
   };
 
   return (
@@ -53,10 +65,10 @@ const AddLecture = () => {
             id="item-1"
             className="items-form"
             type="text"
-            name="lecturename"
+            name="name"
             placeholder="Lecture name"
-            value={lectureName}
-            onChange={(e) => setLectureName(e.target.value)}
+            value={inputs.name || ''}
+            onChange={handleChange}
             required
           />
         </label>
@@ -66,10 +78,10 @@ const AddLecture = () => {
             id="item-2"
             className="items-form"
             type="text"
-            name="imageurl"
+            name="imageUrl"
             placeholder="Image url"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
+            value={inputs.imageUrl || ''}
+            onChange={handleChange}
             required
           />
         </label>
@@ -79,10 +91,10 @@ const AddLecture = () => {
             id="item-3"
             className="items-form"
             type="text"
-            name="websitelink"
+            name="webLink"
             placeholder="Website link"
-            value={lectureWeb}
-            onChange={(e) => setLectureWeb(e.target.value)}
+            value={inputs.webLink || ''}
+            onChange={handleChange}
             required
           />
         </label>
@@ -94,9 +106,8 @@ const AddLecture = () => {
             type="number"
             name="price"
             placeholder="Price"
-            value={lecturePrice}
-            onChange={(e) => setLecturePrice(e.target.value)}
-            required
+            value={inputs.price || ''}
+            onChange={handleChange}
           />
         </label>
 
@@ -107,20 +118,18 @@ const AddLecture = () => {
             type="textarea"
             name="description"
             placeholder="Description"
-            value={lectureDesctiption}
-            onChange={(e) => setLectureDescription(e.target.value)}
-            required
+            value={inputs.description || ''}
+            onChange={handleChange}
           />
         </label>
 
         <button className="form-button" type="submit" id="btn-submit">
-          Create Lecture
+          Get In Touch
         </button>
       </form>
 
     </section>
-
   );
-};
+}
 
 export default AddLecture;
