@@ -2,24 +2,49 @@ import './AddLecture.css'
 import React from 'react';
 
 import { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { addLecture, addItemAxios } from '../redux/messages/messagesSlice';
 
 function AddLecture() {
+
+  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [image_url, setimageUrl] = useState('');
+  const [description, setDescription] = useState('');
+  const [web_link, setwebLink] = useState('');
+  const [price, setPrice] = useState('');
+
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
-    const name = event.target.name;
+    event.preventDefault();
+    const event_name = event.target.name;
     const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
+    setInputs(values => ({...values, [event_name]: value}))
+    setName(inputs.name);
+    setimageUrl(inputs.image_url);
+    setDescription(inputs.description);
+    setwebLink(inputs.web_link);
+    setPrice(inputs.price);
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(inputs);
+
+    dispatch(addLecture({
+      name, image_url, description,web_link,price
+    }));
+
+    dispatch(addItemAxios({
+      name,
+      image_url,
+      description,
+      web_link,
+      price,
+    }));
   }
 
   return (
-    
     
     <section class="wrapper-add-lecture" id="contact">
     
@@ -30,9 +55,9 @@ function AddLecture() {
         <input 
           className="items-form"
           type="text" 
-          name="lecturename"
+          name="name"
           placeholder="Lecture name"
-          value={inputs.lecturename || ""} 
+          value={inputs.name || ""} 
           onChange={handleChange}
           required
         />
@@ -42,9 +67,9 @@ function AddLecture() {
         <input 
           className="items-form"
           type="text" 
-          name="imageurl"
+          name="image_url"
           placeholder="Image url"
-          value={inputs.imageurl || ""} 
+          value={inputs.image_url || ""} 
           onChange={handleChange}
           required
         />
@@ -54,9 +79,9 @@ function AddLecture() {
         <input 
           className="items-form"
           type="text" 
-          name="websitelink"
+          name="web_link"
           placeholder="Website link"
-          value={inputs.websitelink || ""} 
+          value={inputs.web_link || ""} 
           onChange={handleChange}
           required
         />
@@ -89,10 +114,7 @@ function AddLecture() {
           </button>
       </form>
     
-    </section>
-    
-
-    
+    </section>    
   )
 }
 
