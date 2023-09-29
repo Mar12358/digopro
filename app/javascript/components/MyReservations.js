@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import LectureService from "../Service/classApi";
-import { setAllReservation } from "../redux/reservation/reservationReducer"; // Import deleteReservation action
-import Loader from "../Ui/Loader";
-import showError from "../Ui/ErrorAlert";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import LectureService from '../Service/classApi';
+import { setAllReservation } from '../redux/reservation/reservationReducer'; // Import deleteReservation action
+import Loader from '../Ui/Loader';
+import showError from '../Ui/ErrorAlert';
 
 const MyReservations = () => {
   const dispatch = useDispatch();
@@ -17,18 +17,16 @@ const MyReservations = () => {
     try {
       const response = await LectureService.removeReservation(
         currentUser,
-        reservationId
+        reservationId,
       );
       if (response.message) {
         // Update the local state by filtering out the deleted reservation
-        setLocalReservations((prevReservations) =>
-          prevReservations.filter(
-            (reservation) => reservation.id !== reservationId
-          )
-        );
+        setLocalReservations((prevReservations) => prevReservations.filter(
+          (reservation) => reservation.id !== reservationId,
+        ));
         setLoading(false);
       } else {
-        showError("Request failed!");
+        showError('Request failed!');
         setLoading(false);
       }
     } catch (error) {
@@ -44,14 +42,14 @@ const MyReservations = () => {
         if (response && response?.length > 0) {
           // Sort reservations in descending order based on the created_at date
           response.sort(
-            (a, b) => new Date(b.created_at) - new Date(a.created_at)
+            (a, b) => new Date(b.created_at) - new Date(a.created_at),
           );
           setLoading(false);
           dispatch(setAllReservation(response));
           // Update the local state with the fetched reservations
           setLocalReservations(response);
         } else {
-          showError("No Reservation found");
+          showError('No Reservation found');
         }
       } catch (error) {
         setLoading(false);
@@ -82,21 +80,21 @@ const MyReservations = () => {
                 className="px-[5rem] my-[1rem] rounded-[1rem] py-[2rem] border-y-4 hover:border-blue-500"
               >
                 {/* Find the corresponding lecture by matching lecture_id */}
-                {allLecture.map((lecture) =>
-                  lecture?.id === reservation?.lecture_id ? (
-                    <span
-                      className="pl-[1rem] text-2xl font-bold "
-                      key={lecture?.id}
-                    >
-                      {lecture?.name}
-                    </span>
-                  ) : null
-                )}
+                {allLecture.map((lecture) => (lecture?.id === reservation?.lecture_id ? (
+                  <span
+                    className="pl-[1rem] text-2xl font-bold "
+                    key={lecture?.id}
+                  >
+                    {lecture?.name}
+                  </span>
+                ) : null))}
                 <span className="md:text-sm md:pl-[1rem] pl-2px text-xs">
                   {reservation.date}
                 </span>
                 <span className="md:text-sm md:pl-[1rem]  pl-2px text-xs">
-                  Location: {reservation?.city}
+                  Location:
+                  {' '}
+                  {reservation?.city}
                 </span>
                 <button
                   onClick={() => handleDeleteReservation(reservation?.id)}
