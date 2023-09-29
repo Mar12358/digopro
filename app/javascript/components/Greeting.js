@@ -10,9 +10,9 @@ function Greeting(props) {
   const {
     id,
     name,
-    image_url,
+    imageUrl,
     description,
-    web_link,
+    webLink,
     price,
   } = props;
   return (
@@ -27,7 +27,7 @@ function Greeting(props) {
           <li className="title">{name}</li>
           <li>
             {' '}
-            <a href={web_link} target="_blank" rel="noopener noreferrer">web link</a>
+            <a href={webLink} target="_blank" rel="noopener noreferrer">web link</a>
             {' '}
           </li>
         </ul>
@@ -35,7 +35,7 @@ function Greeting(props) {
 
       <div className="container-2">
 
-        <img src={image_url} alt="My_Image" className="logo-lecture" />
+        <img src={imageUrl} alt="My_Image" className="logo-lecture" />
 
         <div className="container-3">
           {description}
@@ -71,18 +71,18 @@ function Greeting(props) {
 Greeting.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
-  image_url: PropTypes.string,
+  imageUrl: PropTypes.string,
   description: PropTypes.string,
-  web_link: PropTypes.string,
+  webLink: PropTypes.string,
   price: PropTypes.string,
 };
 
 Greeting.defaultProps = {
   id: 'none',
   name: 'none',
-  image_url: 'none',
+  imageUrl: 'none',
   description: 'none',
-  web_link: 'none',
+  webLink: 'none',
   price: 'none',
 
 };

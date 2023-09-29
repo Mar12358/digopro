@@ -9,9 +9,9 @@ function AddLecture() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [image_url, setimageUrl] = useState('');
+  const [imageUrl, setimageUrl] = useState('');
   const [description, setDescription] = useState('');
-  const [web_link, setwebLink] = useState('');
+  const [webLink, setwebLink] = useState('');
   const [price, setPrice] = useState('');
 
   const [inputs, setInputs] = useState({});
@@ -22,13 +22,13 @@ function AddLecture() {
 
   const handleChange = (event) => {
     event.preventDefault();
-    const event_name = event.target.name;
+    const eventName = event.target.name;
     const { value } = event.target;
-    setInputs((values) => ({ ...values, [event_name]: value }));
+    setInputs((values) => ({ ...values, [eventName]: value }));
     setName(inputs.name);
-    setimageUrl(inputs.image_url);
+    setimageUrl(inputs.imageUrl);
     setDescription(inputs.description);
-    setwebLink(inputs.web_link);
+    setwebLink(inputs.webLink);
     setPrice(inputs.price);
   };
 
@@ -36,20 +36,19 @@ function AddLecture() {
     event.preventDefault();
 
     dispatch(addLecture({
-      name, image_url, description, web_link, price,
+      name, imageUrl, description, webLink, price,
     }));
 
     dispatch(addItemAxios({
       name,
-      image_url,
+      imageUrl,
       description,
-      web_link,
+      webLink,
       price,
     }));
 
-    dispatch(fetchMessages());
-
     navigate('/');
+    dispatch(fetchMessages());
   };
 
   return (
@@ -79,9 +78,9 @@ function AddLecture() {
             id="item-2"
             className="items-form"
             type="text"
-            name="image_url"
+            name="imageUrl"
             placeholder="Image url"
-            value={inputs.image_url || ''}
+            value={inputs.imageUrl || ''}
             onChange={handleChange}
             required
           />
@@ -92,9 +91,9 @@ function AddLecture() {
             id="item-3"
             className="items-form"
             type="text"
-            name="web_link"
+            name="webLink"
             placeholder="Website link"
-            value={inputs.web_link || ''}
+            value={inputs.webLink || ''}
             onChange={handleChange}
             required
           />

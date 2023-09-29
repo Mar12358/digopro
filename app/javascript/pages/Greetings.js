@@ -25,9 +25,9 @@ export default function Greetings() {
       key={str}
       id={messageList[i].id}
       name={messageList[i].name}
-      image_url={messageList[i].image_url}
+      imageUrl={messageList[i].imageUrl}
       description={messageList[i].description}
-      web_link={messageList[i].web_link}
+      webLink={messageList[i].webLink}
       price={messageList[i].price}
     />);
   }
