@@ -18,7 +18,7 @@ export const addItemAxios = createAsyncThunk('messages/addItemAxios', async (pay
   } = payload;
   try {
     const resp = await axios.post(url, {
-      name,      
+      name,
       image_url,
       description,
       web_link,
@@ -71,21 +71,21 @@ const messageSlice = createSlice({
     builder
       .addCase(fetchMessages.fulfilled, (state, action) => {
         // Assuming that the action.payload.data contains the fetched message data
-  
+
         const newMessageList = [];
         Object.keys(action.payload).forEach((el) => {
           const newMessage = {
             id: action.payload[el].id,
             name: action.payload[el].name,
             image_url: action.payload[el].image_url,
-            description: action.payload[el].description, 
+            description: action.payload[el].description,
             web_link: action.payload[el].web_link,
-            price:  action.payload[el].price,          
+            price: action.payload[el].price,
           };
           newMessageList.push(newMessage);
         });
-          
-        return { messageList: newMessageList, status: 'succeeded' };        
+
+        return { messageList: newMessageList, status: 'succeeded' };
       })
       .addCase(fetchMessages.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(fetchMessages.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));

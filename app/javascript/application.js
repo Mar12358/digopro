@@ -9,9 +9,7 @@ import Nav from './components/Nav';
 import Lecture from './components/Lecture';
 import MyReservations from './components/MyReservations';
 import AddLecture from './components/AddLecture';
-import DeleteLecture from './components/DeleteLecture';
 import Greetings from './pages/Greetings';
-
 
 function App() {
   return (

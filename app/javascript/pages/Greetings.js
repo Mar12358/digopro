@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMessages } from '../redux/messages/messagesSlice';
 import Greeting from '../components/Greeting';
-import './Greetings.css'
+import './Greetings.css';
 
 export default function Greetings() {
   const dispatch = useDispatch();
 
   // Access the 'messageList' and 'status' properties from the Redux store
   const { messageList, status } = useSelector((store) => store.message);
-   
+
   useEffect(() => {
     // Check the status from the Redux store
     if (status === 'idle') {
@@ -28,11 +28,9 @@ export default function Greetings() {
       image_url={messageList[i].image_url}
       description={messageList[i].description}
       web_link={messageList[i].web_link}
-      price={messageList[i].price} 
+      price={messageList[i].price}
     />);
   }
-
-
 
   return (
     <div className="container">

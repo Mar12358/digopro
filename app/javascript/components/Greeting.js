@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Greeting.css'
+import './Greeting.css';
 
 import { useDispatch } from 'react-redux';
 import { removeLecture, deleteItemAxios } from '../redux/messages/messagesSlice';
-
-
 
 function Greeting(props) {
   const dispatch = useDispatch();
@@ -22,15 +20,22 @@ function Greeting(props) {
 
       <div className="container-1">
         <ul className="book-data">
-          <li className="lecture-id">ID{id}</li>
+          <li className="lecture-id">
+            ID
+            {id}
+          </li>
           <li className="title">{name}</li>
-          <li> <a href={web_link} target="_blank" rel="noopener noreferrer">web link</a> </li>
+          <li>
+            {' '}
+            <a href={web_link} target="_blank" rel="noopener noreferrer">web link</a>
+            {' '}
+          </li>
         </ul>
       </div>
 
       <div className="container-2">
-    
-        <img src={image_url} alt="My_Image" className="logo-lecture"/>
+
+        <img src={image_url} alt="My_Image" className="logo-lecture" />
 
         <div className="container-3">
           {description}
@@ -43,24 +48,24 @@ function Greeting(props) {
           Price
         </span>
         <span className="Current-Lesson Text-Style-4">
-           {price}
+          {price}
         </span>
       </div>
 
       <div className="actions">
         <button
           type="submit"
-          onClick={() => {            
-            console.log('id',id);
+          onClick={() => {
+            console.log('id', id);
             dispatch(removeLecture({ id }));
             dispatch(deleteItemAxios({ id }));
           }}
         >
           Remove
-        </button> 
+        </button>
       </div>
-  </div>
-     
+    </div>
+
   );
 }
 
