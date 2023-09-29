@@ -26,12 +26,11 @@ const Nav = () => {
       } catch (error) {
         showError('Request failed!', error);
       }
-
       try {
         const response = await LectureService.getCurrentUser();
         if (response) {
+          localStorage.setItem('currentUser', response);
           dispatch(setCurrentUser(response));
-          // notify('Session loaded successfully');
         } else {
           showError('Something went wrong!, try again');
         }
@@ -105,32 +104,39 @@ const Nav = () => {
           </li>
 
           <li className="social">
-            <a href="https://www.flaticon.com/free-icons/google-plus" title="google plus icons">
+            <a
+              href="https://www.flaticon.com/free-icons/google-plus"
+              title="google plus icons"
+            >
               <img src="./images/google-plus-logo.png" alt="google icon" />
             </a>
           </li>
 
           <li className="social">
-            <a href="https://www.flaticon.es/iconos-gratis/letra-v" title="letra v iconos">
+            <a
+              href="https://www.flaticon.es/iconos-gratis/letra-v"
+              title="letra v iconos"
+            >
               <img src="./images/vimeo.png" alt="vimeo icon" />
             </a>
           </li>
 
           <li className="social">
-            <a href="https://www.flaticon.es/iconos-gratis/letra-v" title="letra v iconos">
+            <a
+              href="https://www.flaticon.es/iconos-gratis/letra-v"
+              title="letra v iconos"
+            >
               <img src="./images/social.png" alt="pinterest icon" />
             </a>
           </li>
-
         </ul>
         <p className="tiny">
           {' '}
-          {`${String.fromCodePoint(0x00A9)}`}
+          {`${String.fromCodePoint(0x00a9)}`}
           {' '}
-          2023  Aprendes inc.
+          2023 Aprendes inc.
           {' '}
         </p>
-
       </div>
     </div>
   );
