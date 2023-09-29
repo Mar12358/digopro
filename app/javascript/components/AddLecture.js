@@ -124,7 +124,7 @@ function AddLecture() {
         </label>
 
         <button className="form-button" type="submit" id="btn-submit">
-          Get In Touch
+          Add Lecture
         </button>
       </form>
 
