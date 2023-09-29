@@ -1,12 +1,12 @@
-import './AddLecture.css'
-import React from 'react';
+import './AddLecture.css';
+import React, { useState } from 'react';
 
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addLecture, addItemAxios } from '../redux/messages/messagesSlice';
+import { addLecture, addItemAxios, fetchMessages } from '../redux/messages/messagesSlice';
+import { useNavigate } from "react-router-dom";
 
 function AddLecture() {
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [image_url, setimageUrl] = useState('');
@@ -19,20 +19,20 @@ function AddLecture() {
   const handleChange = (event) => {
     event.preventDefault();
     const event_name = event.target.name;
-    const value = event.target.value;
-    setInputs(values => ({...values, [event_name]: value}))
+    const { value } = event.target;
+    setInputs((values) => ({ ...values, [event_name]: value }));
     setName(inputs.name);
     setimageUrl(inputs.image_url);
     setDescription(inputs.description);
     setwebLink(inputs.web_link);
     setPrice(inputs.price);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     dispatch(addLecture({
-      name, image_url, description,web_link,price
+      name, image_url, description, web_link, price,
     }));
 
     dispatch(addItemAxios({
@@ -42,80 +42,92 @@ function AddLecture() {
       web_link,
       price,
     }));
-  }
+
+    dispatch(fetchMessages());
+
+    navigate('/');
+
+  };
 
   return (
-    
-    <section class="wrapper-add-lecture" id="contact">
-    
-      <h2 class="content">We are always interested in creating new projects,
-             so if you'd like to add one lecture please fill this form.</h2>
+
+    <section className="wrapper-add-lecture" id="contact">
+
+      <h2 className="content">
+        We are always interested in creating new projects,
+        so if you would like to add one lecture please fill this form.
+      </h2>
       <form className="form-add-lecture" onSubmit={handleSubmit}>
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="name"
-          placeholder="Lecture name"
-          value={inputs.name || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="image_url"
-          placeholder="Image url"
-          value={inputs.image_url || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
-        <input 
-          className="items-form"
-          type="text" 
-          name="web_link"
-          placeholder="Website link"
-          value={inputs.web_link || ""} 
-          onChange={handleChange}
-          required
-        />
-        </label>
-
-        <label className="label-size">
+        <label className="label-size" htmlFor="item-1">
           <input
+            id="item-1"
             className="items-form"
-            type="number" 
-            name="price" 
+            type="text"
+            name="name"
+            placeholder="Lecture name"
+            value={inputs.name || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-2">
+          <input
+            id="item-2"
+            className="items-form"
+            type="text"
+            name="image_url"
+            placeholder="Image url"
+            value={inputs.image_url || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-3">
+          <input
+            id="item-3"
+            className="items-form"
+            type="text"
+            name="web_link"
+            placeholder="Website link"
+            value={inputs.web_link || ''}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label className="label-size" htmlFor="item-4">
+          <input
+            id="item-4"
+            className="items-form"
+            type="number"
+            name="price"
             placeholder="Price"
-            value={inputs.price || ""} 
+            value={inputs.price || ''}
             onChange={handleChange}
           />
-          </label>
+        </label>
 
-           <label className="label-size">
+        <label className="label-size" htmlFor="item-5">
           <textarea
+            id="item-5"
             className="textarea"
-            type="textarea" 
-            name="description" 
+            type="textarea"
+            name="description"
             placeholder="Description"
-            value={inputs.description || ""} 
+            value={inputs.description || ''}
             onChange={handleChange}
           />
-          </label>
+        </label>
 
-          <button className="form-button" type="submit" id="btn-submit">
-            Get In Touch
-          </button>
+        <button className="form-button" type="submit" id="btn-submit">
+          Get In Touch
+        </button>
       </form>
-    
-    </section>    
-  )
+
+    </section>
+  );
 }
 
 export default AddLecture;
