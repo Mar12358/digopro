@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMessages } from '../redux/messages/messagesSlice';
-import Greeting from '../components/Greeting';
+import DeleteLecture from '../components/DeleteLecture';
 import './Greetings.css';
 
 export default function Greetings() {
@@ -21,7 +21,7 @@ export default function Greetings() {
 
   for (let i = 0; i < messageList.length; i += 1) {
     const str = `message${i}`;
-    myMessages.push(<Greeting
+    myMessages.push(<DeleteLecture
       key={str}
       id={messageList[i].id}
       name={messageList[i].name}

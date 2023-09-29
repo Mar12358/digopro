@@ -92,7 +92,7 @@
 }
 
 
-.Current-Chapter {
+.price-label {
 
   opacity: 0.5;
   font-family: RobotoSlab, sans-serif;
@@ -105,7 +105,7 @@
   color: #121212;
 }
 
-.Current-Lesson {
+.price {
   font-family: RobotoSlab, sans-serif;
   font-size: 1rem;
   font-weight: 300;
