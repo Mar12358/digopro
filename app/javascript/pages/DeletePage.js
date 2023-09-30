@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import DeleteLecture from '../components/DeleteLecture';
-import './Greetings.css';
+import './DeletePage.css';
 
 import { useDispatch } from 'react-redux';
 import {  useEffect } from 'react';
 
 import {fetchMessages } from '../redux/lecture/lectureReducer'
 
-export default function Greetings() {
+export default function DeletePage() {
   const dispatch = useDispatch();
   const { allLecture, status } = useSelector((state) => state.lecture);
 
