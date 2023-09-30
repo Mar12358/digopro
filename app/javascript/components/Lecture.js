@@ -70,7 +70,7 @@ const Lecture = () => {
               disabled={currentSlide === 0}
               className={`${
                 currentSlide === 0
-                  ? 'bg-gray-400'
+                  ? 'hover:bg-gray-400'
                   : 'bg-green-800 hover:bg-green-800'
               } bg-green-800 border border-green-800 rotate-180 hover:bg-green-800 font-bold py-2 px-4 rounded`}
             >
