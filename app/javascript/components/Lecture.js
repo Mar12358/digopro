@@ -52,7 +52,7 @@ const Lecture = () => {
   return (
     <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-white">
       <div className="flex flex-col justify-center items-center py-3 pb-3">
-        <h2 className="text-2xl">Our latest Class</h2>
+        <h2 className="text-2xl">Our latest Lecture</h2>
         <p className="text-3xl">See all lectures</p>
       </div>
       {loading ? (
