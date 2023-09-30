@@ -47,7 +47,9 @@ const Lecture = () => {
   const endIdx = startIdx + slidesPerPage;
 
   // Filter lectures based on the current slide index
-  const displayedLectures = lectures.slice(startIdx, endIdx).filter((lecture) => !lecture.removed);
+  const displayedLectures = lectures
+    .slice(startIdx, endIdx)
+    .filter((lecture) => !lecture.removed);
 
   return (
     <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-white">
