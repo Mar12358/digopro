@@ -213,7 +213,7 @@ Example:
 - LinkedIn: [Martin Ezequiel Gonzalez](https://www.linkedin.com/in/martin-ezequiel/)
 
 
-👤 ** Abraham**
+👤 **Abraham Christopher**
 
 👤 **EDAHI**
 
