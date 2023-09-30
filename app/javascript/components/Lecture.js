@@ -134,7 +134,7 @@ const Lecture = () => {
               disabled={endIdx >= lectures.length}
               className={`${
                 endIdx >= lectures.length
-                  ? 'bg-gray-400'
+                  ? 'hover:bg-gray-400'
                   : 'bg-green-800 hover:bg-green-800'
               } bg-green-800 border border-green-800 hover:bg-green-800 font-bold py-2 px-4 rounded`}
             >
