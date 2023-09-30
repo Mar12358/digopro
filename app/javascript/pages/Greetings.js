@@ -15,10 +15,6 @@ export default function Greetings() {
         key={str}
         id={allLecture[i].id}
         name={allLecture[i].name}
-        imageUrl={allLecture[i].imageUrl}
-        description={allLecture[i].description}
-        webLink={allLecture[i].webLink}
-        price={allLecture[i].price}
       />);
     }
   }
