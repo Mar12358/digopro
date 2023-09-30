@@ -234,6 +234,7 @@ Example:
 
 ## 🤝 Contributing <a name="contributing"></a>
 
+
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/Mar12358/hello-rails-react/issues).
