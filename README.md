@@ -216,7 +216,9 @@ Example:
 👤 **Abraham Christopher**
 
 - GitHub: [@cabraham1](https://github.com/cabraham1)
-- Twitter: [@Abraham Chrsitopher](https://twitter.com/abrahamchristopher)
+- Twitter: [@cabrahama](https://twitter.com/_cabraham)
+- LinkedIn: [Abraham Christopher](https://www.linkedin.com/in/abrahamchristopher)
+
 
 
 👤 **EDAHI**
