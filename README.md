@@ -212,9 +212,14 @@ Example:
 - Twitter: [@MarezegonZ](https://twitter.com/MarezegonZ)
 - LinkedIn: [Martin Ezequiel Gonzalez](https://www.linkedin.com/in/martin-ezequiel/)
 
-👤 **NURBOL**
 
-👤 **CHRIS**
+👤 **Abraham Christopher**
+
+- GitHub: [@cabraham1](https://github.com/cabraham1)
+- Twitter: [@cabrahama](https://twitter.com/_cabraham)
+- LinkedIn: [Abraham Christopher](https://www.linkedin.com/in/abrahamchristopher)
+
+
 
 👤 **EDAHI**
 
@@ -233,6 +238,7 @@ Example:
 <!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
+
 
 Contributions, issues, and feature requests are welcome!
 
