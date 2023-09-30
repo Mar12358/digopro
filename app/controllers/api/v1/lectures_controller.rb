@@ -37,7 +37,6 @@ class Api::V1::LecturesController < ApplicationController
   end
 
   def destroy
-
     @lecture = Lecture.find(params[:id])
     @lecture.destroy
 
@@ -46,7 +45,6 @@ class Api::V1::LecturesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 
   def reservation_params
     params.require(:lecture).permit(:name, :image_url, :description, :web_link, :price)
