@@ -212,7 +212,6 @@ Example:
 - Twitter: [@MarezegonZ](https://twitter.com/MarezegonZ)
 - LinkedIn: [Martin Ezequiel Gonzalez](https://www.linkedin.com/in/martin-ezequiel/)
 
-👤 **NURBOL**
 
 👤 **CHRIS**
 
