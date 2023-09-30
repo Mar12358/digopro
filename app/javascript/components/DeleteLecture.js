@@ -4,24 +4,27 @@ import './DeleteLecture.css';
 import LectureService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
+import { useDispatch } from 'react-redux';
+import {removeLecture } from '../redux/lecture/lectureReducer'
+
 function DeleteLecture(props) {
+
+  const dispatch = useDispatch();
+  
   const handleDeleteLecture = async (lectureId) => {
-    // setLoading(true);
+  
     try {
       const response = await LectureService.removeLecture(lectureId);
       if (response.message) {
-        // Update the local state by filtering out the deleted lecture
-        // setLoading(false);
+        dispatch(removeLecture(lectureId))
       } else {
         showError('Request failed!');
-        // setLoading(false);
       }
     } catch (error) {
       showError(`${error}, Please try again`);
-      // setLoading(false);
     }
   };
-
+  
   const {
     id,
     name,
