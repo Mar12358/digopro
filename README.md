@@ -215,7 +215,7 @@ Example:
 
 👤 **Abraham Christopher**
 
-- GitHub: [@Mar12358](https://github.com/cabraham1)
+- GitHub: [@cabraham1](https://github.com/cabraham1)
 - Twitter: [@MarezegonZ](https://twitter.com/abrahamchristopher)
 
 
