@@ -1,40 +1,31 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchMessages } from '../redux/messages/messagesSlice';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import DeleteLecture from '../components/DeleteLecture';
 import './Greetings.css';
 
 export default function Greetings() {
-  const dispatch = useDispatch();
+  const { allLecture } = useSelector((state) => state.lecture);
 
-  // Access the 'messageList' and 'status' properties from the Redux store
-  const { messageList, status } = useSelector((store) => store.message);
+  const myLectures = [];
 
-  useEffect(() => {
-    // Check the status from the Redux store
-    if (status === 'idle') {
-      dispatch(fetchMessages());
+  for (let i = 0; i < allLecture.length; i += 1) {
+    const str = `lecture${i}`;
+    if (!allLecture[i].removed) {
+      myLectures.push(<DeleteLecture
+        key={str}
+        id={allLecture[i].id}
+        name={allLecture[i].name}
+        imageUrl={allLecture[i].imageUrl}
+        description={allLecture[i].description}
+        webLink={allLecture[i].webLink}
+        price={allLecture[i].price}
+      />);
     }
-  }, [status, dispatch]);
-
-  const myMessages = [];
-
-  for (let i = 0; i < messageList.length; i += 1) {
-    const str = `message${i}`;
-    myMessages.push(<DeleteLecture
-      key={str}
-      id={messageList[i].id}
-      name={messageList[i].name}
-      imageUrl={messageList[i].imageUrl}
-      description={messageList[i].description}
-      webLink={messageList[i].webLink}
-      price={messageList[i].price}
-    />);
   }
 
   return (
     <div className="container">
-      {myMessages}
+      {myLectures}
     </div>
   );
 }

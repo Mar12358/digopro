@@ -1,26 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './DeleteLecture.css';
-
-import { useDispatch } from 'react-redux';
 import LectureService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
-import { removeLecture, deleteItemAxios } from '../redux/messages/messagesSlice';
-
 function DeleteLecture(props) {
-  const dispatch = useDispatch();
-
-  const handleDeleteLecture = async (reservationId) => {
+  const handleDeleteLecture = async (lectureId) => {
+    // setLoading(true);
     try {
-      const response = await LectureService.removeLecture(reservationId);
+      const response = await LectureService.removeLecture(lectureId);
       if (response.message) {
-        dispatch(removeLecture(reservationId));
+        // Update the local state by filtering out the deleted lecture
+        // setLoading(false);
       } else {
         showError('Request failed!');
+        // setLoading(false);
       }
     } catch (error) {
       showError(`${error}, Please try again`);
+      // setLoading(false);
     }
   };
 
@@ -70,15 +68,6 @@ function DeleteLecture(props) {
       </div>
 
       <div className="actions">
-        <button
-          type="submit"
-          onClick={() => {
-            dispatch(removeLecture({ id }));
-            dispatch(deleteItemAxios({ id }));
-          }}
-        >
-          Destroy
-        </button>
         <button
           type="submit"
           onClick={() => {
