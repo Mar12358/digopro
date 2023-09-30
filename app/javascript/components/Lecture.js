@@ -76,7 +76,7 @@ const Lecture = () => {
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] grid-cols-1  grid-row-2 justify-items-center">
+          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1  grid-row-2 justify-items-center">
             {displayedLectures.map((lecture) => (
               <div
                 key={lecture.id}
