@@ -1,48 +1,35 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import DeleteLecture from '../components/DeleteLecture';
 import './DeletePage.css';
 
-import { useDispatch } from 'react-redux';
-import {  useEffect } from 'react';
-
-import {fetchMessages } from '../redux/lecture/lectureReducer'
+import React, { useEffect, useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import DeleteLecture from '../components/DeleteLecture';
+import { fetchMessages } from '../redux/lecture/lectureReducer';
 
 export default function DeletePage() {
   const dispatch = useDispatch();
+
   const { allLecture, status } = useSelector((state) => state.lecture);
 
-  let myLectures = [];
+  const [myLectures, setMyLectures] = useState([]);
 
+  const myLecturesRef = useRef();
 
-  for (let i = 0; i < allLecture.length; i += 1) {
-    const str = `lecture${i}`;
-    if (!allLecture[i].removed) {
-      myLectures.push(<DeleteLecture
-        key={str}
-        id={allLecture[i].id}
-        name={allLecture[i].name}
-      />);
-    }
-  }
-  
   useEffect(() => {
     dispatch(fetchMessages);
-    myLectures = [];
+    myLecturesRef.current = [];
 
     for (let i = 0; i < allLecture.length; i += 1) {
       const str = `lecture${i}`;
       if (!allLecture[i].removed) {
-        myLectures.push(<DeleteLecture
+        myLecturesRef.current.push(<DeleteLecture
           key={str}
           id={allLecture[i].id}
           name={allLecture[i].name}
         />);
       }
     }
-
-  }, [status]);
-  
+    setMyLectures(myLecturesRef.current);
+  }, [status, dispatch, allLecture]);
 
   return (
     <div className="container">

@@ -1,4 +1,4 @@
-import { createSlice,createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ const lectureSlice = createSlice({
   name: 'lecture',
   initialState: {
     allLecture: [],
-    status: 'no deleted'
+    status: 'no deleted',
   },
   reducers: {
     setAllLecture: (state, action) => ({
@@ -25,11 +25,11 @@ const lectureSlice = createSlice({
       allLecture: action.payload,
     }),
     removeLecture: (state, action) => {
-      const id  = action.payload;
+      const id = action.payload;
       const newState = {
         state,
         allLecture: [...state.allLecture.filter((item) => item.id !== id)],
-        status: 'deleted'
+        status: 'deleted',
       };
       return newState;
     },
