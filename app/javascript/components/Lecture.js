@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react';
+
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import { LuPlay } from 'react-icons/lu';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { setLectureId } from '../redux/lecture/currentLectureSlice';
 import LectureService from '../Service/classApi';
 import Loader from '../Ui/Loader';
 import showError from '../Ui/ErrorAlert';
 
 const Lecture = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [loading, setLoading] = useState(false);
   const [lectures, setLectures] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -30,7 +38,7 @@ const Lecture = () => {
       }
     };
     getall();
-  }, []);
+  }, [dispatch]);
 
   // Function to handle next slide
   const handleNextSlide = () => {
@@ -123,6 +131,17 @@ const Lecture = () => {
                   >
                     <InstagramIcon />
                   </a>
+
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      dispatch(setLectureId(lecture.id));
+                      navigate('/lecture_details');
+                    }}
+                  >
+                    Details
+                  </button>
+
                 </div>
               </div>
             ))}
