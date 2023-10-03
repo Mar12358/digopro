@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3000' # Add the origins that are allowed to access your API
+    origins '*' # Add the origins that are allowed to access your API
 
     resource '/api/v1/*', # Adjust this path to match your API routes
       headers: :any,

@@ -1,7 +1,9 @@
 import './Nav.css';
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
+
 import LectureService from '../Service/classApi';
 import { setAllReservation } from '../redux/reservation/reservationReducer';
 import showError from '../Ui/ErrorAlert';
@@ -11,8 +13,8 @@ import { setAllLecture } from '../redux/lecture/lectureReducer';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state.currentUser);
-
+  // const { currentUser } = useSelector((state) => state.currentUser);
+  const currentUser = 1;
   useEffect(() => {
     const getall = async () => {
       try {
