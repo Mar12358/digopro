@@ -4,7 +4,7 @@ set -o errexit
 
 bundle install
 npm install 
-yarn install
+yarn install --ignore-engines
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 bundle exec rake db:reset
