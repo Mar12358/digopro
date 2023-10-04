@@ -4,7 +4,8 @@ set -o errexit
 
 bundle install
 npm install 
-bundle exec rails assets:precompile
-bundle exec rails assets:clean
-bundle exec rails db:reset
-bundle exec rails db:migrate
+yarn install
+bundle exec rake assets:precompile
+bundle exec rake assets:clean
+bundle exec rake db:reset
+bundle exec rake db:migrate
