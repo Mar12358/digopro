@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+if Rails.env.development?
+  url = 'http://localhost:3000/'
+elsif Rails.env.production?
+  url = 'https://reserve-lectures.onrender.com/'
+end
+
 RSpec.configure do |config|
   # Specify a root folder where Swagger JSON files are generated
   # NOTE: If you're using the rswag-api to serve API descriptions, you'll need
@@ -22,7 +28,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'https://reserve-lectures.onrender.com/'
+          url:
         }
       ]
     }

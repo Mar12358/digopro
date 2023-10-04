@@ -143,7 +143,7 @@ In order to run this project you need to have:
 ```
 
 - Ensure you set your current ruby version on Gemfile.
-- Set your postgres username and password, do so on `config/database.yml`. To get instructions on this, open `config/database_sample.yml`.
+- Set your postgres username and password, do so on `config/database.yml`.
 
 ### Install <a name="install"></a>
 
@@ -151,7 +151,7 @@ In order to run this project you need to have:
 ```sh
   npm install
 ```
-- We built a script for you to build the whole project at once, run:
+- We built a script for you to build the whole project at once (including db setup and seeds), run:
 
 ```sh
   npm run project:build
