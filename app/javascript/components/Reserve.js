@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
+import { setLectureId } from '../redux/lecture/currentLectureSlice';
 import LectureService from '../Service/classApi';
 import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
@@ -17,6 +18,7 @@ const Reserve = () => {
   const [loading, setLoading] = useState(false);
   const { currentUser } = useSelector((state) => state.currentUser);
   const { allLecture } = useSelector((state) => state.lecture);
+  const { currentLectureId } = useSelector((state) => state.currentLecture);
 
   // Filter out lectures with removed set to true
   const filteredLectures = allLecture.filter((lecture) => !lecture.removed);
@@ -38,7 +40,8 @@ const Reserve = () => {
       }
     };
     getall();
-  }, [dispatch]);
+    setSelectedLectureId(currentLectureId);
+  }, [currentLectureId, dispatch]);
 
   const handleAddReservation = async (e) => {
     e.preventDefault();
@@ -56,6 +59,7 @@ const Reserve = () => {
         setStartDate('');
         setCity('');
         setSelectedLectureId('');
+        dispatch(setLectureId(null));
         navigate('/my-reservations');
       } else {
         showError('Something went wrong!, try again');

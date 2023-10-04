@@ -98,9 +98,9 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-- **GET/POST Request on API Endpoints**
-- **Rswag Documentation**
-- **Ruby on Rails React App**
+- **API Endpoints**
+- **Lecture**
+- **Reservation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,8 +220,11 @@ Example:
 - LinkedIn: [Abraham Christopher](https://www.linkedin.com/in/abrahamchristopher)
 
 
+👤 **Edahi Gutiérrez**
 
-👤 **EDAHI**
+- GitHub: [@edahigure](https://github.com/edahigure)
+- Twitter: [@edahigure](https://twitter.com/edahigure)
+- LinkedIn: [edahigure](https://linkedin.com/in/edahigure)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -229,9 +232,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Add Style**
-- [ ] **Add React Components**
-- [ ] **Add Devise**
+- [ ] **Improve Style**
+- [ ] **Add Admin priviledges**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -284,6 +286,8 @@ I would like to thank Microverse for this opportunity to learn and grow as a dev
 <!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 This project is [MIT](./LICENSE) licensed.
 
