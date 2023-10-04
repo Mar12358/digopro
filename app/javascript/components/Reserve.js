@@ -19,8 +19,7 @@ const Reserve = () => {
   const { allLecture } = useSelector((state) => state.lecture);
 
   // Filter out lectures with removed set to true
-const filteredLectures = allLecture.filter((lecture) => !lecture.removed);
-
+  const filteredLectures = allLecture.filter((lecture) => !lecture.removed);
 
   useEffect(() => {
     const getall = async () => {
