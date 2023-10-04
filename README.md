@@ -287,6 +287,8 @@ I would like to thank Microverse for this opportunity to learn and grow as a dev
 
 ## 📝 License <a name="license"></a>
 
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
 This project is [MIT](./LICENSE) licensed.
 
 
