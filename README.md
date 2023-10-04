@@ -47,6 +47,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites ](#prerequisites-)
     - [Setup ](#setup-)
@@ -104,15 +105,15 @@ After you're finished please remove all the comments and instructions!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- - Not available
+<!-- - Not available -->
 
-## 🚀 Live Demo <a name="live-demo"></a> -->
+## 🚀 Live Demo <a name="live-demo"></a> 
 
 
 
-<!-- - [Live Demo Link](<replace-with-your-deployment-URL>)
+[Live Demo Link](https://reserve-lectures.onrender.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -142,17 +143,15 @@ In order to run this project you need to have:
 ```
 
 - Ensure you set your current ruby version on Gemfile.
-- Set your postgres username and password, do so on `config/database.yml`. To get instructions on this, open `config/database_sample.yml`.
+- Set your postgres username and password, do so on `config/database.yml`.
 
 ### Install <a name="install"></a>
-
-
 
 - Now, you need to install node dependencies, run:
 ```sh
   npm install
 ```
-- We built a script for you to build the whole project at once, run:
+- We built a script for you to build the whole project at once (including db setup and seeds), run:
 
 ```sh
   npm run project:build
@@ -160,6 +159,8 @@ In order to run this project you need to have:
 
 
 ### Usage <a name="usage"></a>
+
+- On file `config\puma.rb`, comment the setup for deployment, line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) **to make it work locally**.
 
 - Once you completed the Install section succesfully, run:
 ```sh
