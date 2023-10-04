@@ -22,7 +22,7 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
   API_USER_URL = 'http://127.0.0.1:3000';
 }
 
-export async function request(url, method, payload, text, form) {
+export const request = async (url, method, payload, text, form) => {
   if (form === true) {
     requestHeader['Content-Type'] = 'multipart/form-data';
   } else {
@@ -58,4 +58,4 @@ export async function request(url, method, payload, text, form) {
     .catch((err) => {
       throw new Error(err);
     });
-}
+};

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import discoverIcon from '../images/discover.png';
 import arrowRight from '../images/arrow_right.png';
 
-function Details() {
+const Details = () => {
   const { currentLectureId } = useSelector((store) => store.currentLecture);
   const { allLecture } = useSelector((state) => state.lecture);
 
@@ -64,6 +64,6 @@ function Details() {
       </div>
     </div>
   );
-}
+};
 
 export default Details;
