@@ -151,7 +151,7 @@ In order to run this project you need to have:
 ```sh
   npm install
 ```
-- We built a script for you to build the whole project at once (including db setup and seeds), run:
+- Build the whole project at once (including db creation, migrations and seeds), run:
 
 ```sh
   npm run project:build
@@ -160,7 +160,7 @@ In order to run this project you need to have:
 
 ### Usage <a name="usage"></a>
 
-- On file `config\puma.rb`, comment the setup for deployment, line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) **to make it work locally**.
+
 
 - Once you completed the Install section succesfully, run:
 ```sh
@@ -178,6 +178,11 @@ In order to run this project you need to have:
 ```sh
  npm start
 ```
+
+- For deployment:
+  - Uncomment the line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) on file `config\puma.rb`.
+  - Switch comments at for url on file `swagger\v1\swagger.yaml`
+  - 
 ### API Documentation <a name="api-documentation"></a>
 
 Once you ran the server, navigate to `http://127.0.0.1:3000/api-docs`.

@@ -7,7 +7,7 @@ import showError from '../Ui/ErrorAlert';
 
 import { removeLecture, setAllLecture } from '../redux/lecture/lectureReducer';
 
-function DeleteLecture(props) {
+const DeleteLecture = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function DeleteLecture(props) {
     </div>
 
   );
-}
+};
 
 DeleteLecture.propTypes = {
   id: PropTypes.string,
