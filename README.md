@@ -47,6 +47,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites ](#prerequisites-)
     - [Setup ](#setup-)
@@ -104,15 +105,15 @@ After you're finished please remove all the comments and instructions!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- - Not available
+<!-- - Not available -->
 
-## 🚀 Live Demo <a name="live-demo"></a> -->
+## 🚀 Live Demo <a name="live-demo"></a> 
 
 
 
-<!-- - [Live Demo Link](<replace-with-your-deployment-URL>)
+[Live Demo Link](https://reserve-lectures.onrender.com)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
