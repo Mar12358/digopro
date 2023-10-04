@@ -181,8 +181,8 @@ In order to run this project you need to have:
 
 - For deployment:
   - Uncomment the line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) on file `config\puma.rb`.
-  - Switch comments at for url on file `swagger\v1\swagger.yaml`
-  - 
+  - Switch comments for url attribute on file `swagger\v1\swagger.yaml`
+
 ### API Documentation <a name="api-documentation"></a>
 
 Once you ran the server, navigate to `http://127.0.0.1:3000/api-docs`.
