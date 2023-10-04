@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { LuPlay } from 'react-icons/lu';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -50,14 +48,15 @@ const Lecture = () => {
     setCurrentSlide((prevSlide) => prevSlide - 1);
   };
 
+  // Filter lectures with removed === false
+  const filteredLectures = lectures.filter((lecture) => !lecture.removed);
+
   // Calculate the range of lectures to display
   const startIdx = currentSlide * slidesPerPage;
   const endIdx = startIdx + slidesPerPage;
 
-  // Filter lectures based on the current slide index
-  const displayedLectures = lectures
-    .slice(startIdx, endIdx)
-    .filter((lecture) => !lecture.removed);
+  // Slice the filtered lectures based on the current slide index
+  const displayedLectures = filteredLectures.slice(startIdx, endIdx);
 
   return (
     <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-white">
@@ -86,12 +85,13 @@ const Lecture = () => {
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1  grid-row-2 justify-items-center">
+          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1 grid-row-2 justify-items-center">
             {displayedLectures.map((lecture) => (
               <div
                 key={lecture.id}
                 className="h-auto md:w-[20rem] outline-1 w-[10rem] my-10"
               >
+                {/* Render lecture content as before */}
                 <img
                   src={`${lecture.image_url}`}
                   alt={`${lecture.name}`}
@@ -131,7 +131,6 @@ const Lecture = () => {
                   >
                     <InstagramIcon />
                   </a>
-
                   <button
                     type="submit"
                     onClick={() => {
@@ -141,18 +140,18 @@ const Lecture = () => {
                   >
                     Details
                   </button>
-
                 </div>
               </div>
             ))}
           </div>
+
           <div className="flex flex-row justify-center items-center">
             <button
               type="button"
               onClick={handleNextSlide}
-              disabled={endIdx >= lectures.length}
+              disabled={endIdx >= filteredLectures.length}
               className={`${
-                endIdx >= lectures.length
+                endIdx >= filteredLectures.length
                   ? 'hover:bg-gray-400'
                   : 'bg-green-800 hover:bg-green-800'
               } bg-green-800 border border-green-800 hover:bg-green-800 font-bold py-2 px-4 rounded`}
