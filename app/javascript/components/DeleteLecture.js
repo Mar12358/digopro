@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './DeleteLecture.css';
 import { useDispatch } from 'react-redux';
 import LectureService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
-import { removeLecture } from '../redux/lecture/lectureReducer';
+import { removeLecture, setAllLecture } from '../redux/lecture/lectureReducer';
 
 function DeleteLecture(props) {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getall = async () => {
+      try {
+        const response = await LectureService.getAllLectures();
+        if (response) {
+          dispatch(setAllLecture(response));
+        } else {
+          showError('Something went wrong!, try again');
+        }
+      } catch (error) {
+        showError('Request failed!', error);
+      }
+    };
+    getall();
+  }, [dispatch]);
 
   const handleDeleteLecture = async (lectureId) => {
     try {
