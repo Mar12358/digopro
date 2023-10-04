@@ -16,10 +16,10 @@ export const requestHeader = {
    * @param {boolean} form
    * @returns Response Data;
    */
-let API_USER_URL = 'http://127.0.0.1:3000';
 
-if (process.env.NODE_ENV === 'production') {
-  API_USER_URL = 'https://reserve-lectures.onrender.com';
+let API_USER_URL = 'https://reserve-lectures.onrender.com';
+if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+  API_USER_URL = 'http://127.0.0.1:3000';
 }
 
 export async function request(url, method, payload, text, form) {

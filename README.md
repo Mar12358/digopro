@@ -147,8 +147,6 @@ In order to run this project you need to have:
 
 ### Install <a name="install"></a>
 
-
-
 - Now, you need to install node dependencies, run:
 ```sh
   npm install
@@ -161,6 +159,8 @@ In order to run this project you need to have:
 
 
 ### Usage <a name="usage"></a>
+
+- On file `config\puma.rb`, comment the setup for deployment, line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) **to make it work locally**.
 
 - Once you completed the Install section succesfully, run:
 ```sh
