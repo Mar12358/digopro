@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { LuPlay } from "react-icons/lu";
 import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -27,6 +25,7 @@ const Lecture = () => {
       try {
         const response = await LectureService.getAllLectures();
         if (response) {
+          console.log(response);
           setLectures(response);
           setLoading(false);
         } else {
@@ -50,14 +49,15 @@ const Lecture = () => {
     setCurrentSlide((prevSlide) => prevSlide - 1);
   };
 
+  // Filter lectures with removed === false
+  const filteredLectures = lectures.filter((lecture) => !lecture.removed);
+
   // Calculate the range of lectures to display
   const startIdx = currentSlide * slidesPerPage;
   const endIdx = startIdx + slidesPerPage;
 
-  // Filter lectures based on the current slide index
-  const displayedLectures = lectures
-    .slice(startIdx, endIdx)
-    .filter((lecture) => !lecture.removed);
+  // Slice the filtered lectures based on the current slide index
+  const displayedLectures = filteredLectures.slice(startIdx, endIdx);
 
   return (
     <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-white">
@@ -87,72 +87,69 @@ const Lecture = () => {
           </div>
 
           <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1 grid-row-2 justify-items-center">
-            {displayedLectures
-              .filter((lecture) => !lecture.removed) // Filter out lectures with remove === true
-              .map((lecture) => (
-                console.log(lecture),
-                <div
-                  key={lecture.id}
-                  className="h-auto md:w-[20rem] outline-1 w-[10rem] my-10"
-                >
-                  {/* Render lecture content as before */}
-                  <img
-                    src={`${lecture.image_url}`}
-                    alt={`${lecture.name}`}
-                    className="w-[100%] h-[10rem] bg-cover"
-                  />
-                  <h4 className="text-bold text-1xl pt-10 text-center">
-                    {lecture.name}
-                  </h4>
-                  <p className="text-1xl pt-10 text-center">
-                    {lecture.description}
-                  </p>
-                  <p className="text-bold pt-10 text-center">
-                    ${lecture.price} / Session
-                  </p>
-                  <div className="flex flex-row justify-center mt-10 items-center gap-4">
-                    <a
-                      href={lecture.web_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FacebookRoundedIcon />
-                    </a>
-                    <a
-                      href={lecture.web_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <TwitterIcon />
-                    </a>
-                    <a
-                      href="https://www.instagram.com/your-instagram-url"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <InstagramIcon />
-                    </a>
-                    <button
-                      type="submit"
-                      onClick={() => {
-                        dispatch(setLectureId(lecture.id));
-                        navigate("/lecture_details");
-                      }}
-                    >
-                      Details
-                    </button>
-                  </div>
+            {displayedLectures.map((lecture) => (
+              <div
+                key={lecture.id}
+                className="h-auto md:w-[20rem] outline-1 w-[10rem] my-10"
+              >
+                {/* Render lecture content as before */}
+                <img
+                  src={`${lecture.image_url}`}
+                  alt={`${lecture.name}`}
+                  className="w-[100%] h-[10rem] bg-cover"
+                />
+                <h4 className="text-bold text-1xl pt-10 text-center">
+                  {lecture.name}
+                </h4>
+                <p className="text-1xl pt-10 text-center">
+                  {lecture.description}
+                </p>
+                <p className="text-bold pt-10 text-center">
+                  ${lecture.price} / Session
+                </p>
+                <div className="flex flex-row justify-center mt-10 items-center gap-4">
+                  <a
+                    href={lecture.web_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FacebookRoundedIcon />
+                  </a>
+                  <a
+                    href={lecture.web_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <TwitterIcon />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/your-instagram-url"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <InstagramIcon />
+                  </a>
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      dispatch(setLectureId(lecture.id));
+                      navigate("/lecture_details");
+                    }}
+                  >
+                    Details
+                  </button>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
 
           <div className="flex flex-row justify-center items-center">
             <button
               type="button"
               onClick={handleNextSlide}
-              disabled={endIdx >= lectures.length - 1}
+              disabled={endIdx >= filteredLectures.length}
               className={`${
-                endIdx >= lectures.length
+                endIdx >= filteredLectures.length
                   ? "hover:bg-gray-400"
                   : "bg-green-800 hover:bg-green-800"
               } bg-green-800 border border-green-800 hover:bg-green-800 font-bold py-2 px-4 rounded`}

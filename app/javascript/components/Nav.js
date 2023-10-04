@@ -42,14 +42,14 @@ const Nav = () => {
 
       try {
         const response = await LectureService.getReservation(currentUser);
-        if (response && response.length > 0) {
+        if (response) {
           // Sort reservations in descending order based on the created_at date
-          response.sort(
-            (a, b) => new Date(b.created_at) - new Date(a.created_at),
-          );
+          // response.sort(
+          //   (a, b) => new Date(b.created_at) - new Date(a.created_at),
+          // );
           dispatch(setAllReservation(response));
         } else {
-          showError('No Reservation found');
+          showError('No Reservation found yet...');
         }
       } catch (error) {
         // showError('Request failed!', error);
