@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { LuPlay } from 'react-icons/lu';
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import { setLectureId } from '../redux/lecture/currentLectureSlice';
-import LectureService from '../Service/classApi';
-import Loader from '../Ui/Loader';
-import showError from '../Ui/ErrorAlert';
+import { LuPlay } from "react-icons/lu";
+import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import { setLectureId } from "../redux/lecture/currentLectureSlice";
+import LectureService from "../Service/classApi";
+import Loader from "../Ui/Loader";
+import showError from "../Ui/ErrorAlert";
 
 const Lecture = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const Lecture = () => {
           setLectures(response);
           setLoading(false);
         } else {
-          showError('Something went wrong!, try again');
+          showError("Something went wrong!, try again");
         }
       } catch (error) {
         showError(`${error}, Please try again`);
@@ -78,83 +78,83 @@ const Lecture = () => {
               disabled={currentSlide === 0}
               className={`${
                 currentSlide === 0
-                  ? 'hover:bg-gray-400'
-                  : 'bg-green-800 hover:bg-green-800'
+                  ? "hover:bg-gray-400"
+                  : "bg-green-800 hover:bg-green-800"
               } bg-green-800 border border-green-800 rotate-180 hover:bg-green-800 font-bold py-2 px-4 rounded`}
             >
               <LuPlay className="play-icon" />
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1  grid-row-2 justify-items-center">
-            {displayedLectures.map((lecture) => (
-              <div
-                key={lecture.id}
-                className="h-auto md:w-[20rem] outline-1 w-[10rem] my-10"
-              >
-                <img
-                  src={`${lecture.image_url}`}
-                  alt={`${lecture.name}`}
-                  className="w-[100%] h-[10rem] bg-cover"
-                />
-                <h4 className="text-bold text-1xl pt-10 text-center">
-                  {lecture.name}
-                </h4>
-                <p className="text-1xl pt-10 text-center">
-                  {lecture.description}
-                </p>
-                <p className="text-bold pt-10 text-center">
-                  $
-                  {lecture.price}
-                  {' '}
-                  / Session
-                </p>
-                <div className="flex flex-row justify-center mt-10 items-center gap-4">
-                  <a
-                    href={lecture.web_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FacebookRoundedIcon />
-                  </a>
-                  <a
-                    href={lecture.web_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <TwitterIcon />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/your-instagram-url"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <InstagramIcon />
-                  </a>
-
-                  <button
-                    type="submit"
-                    onClick={() => {
-                      dispatch(setLectureId(lecture.id));
-                      navigate('/lecture_details');
-                    }}
-                  >
-                    Details
-                  </button>
-
+          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1 grid-row-2 justify-items-center">
+            {displayedLectures
+              .filter((lecture) => !lecture.removed) // Filter out lectures with remove === true
+              .map((lecture) => (
+                console.log(lecture),
+                <div
+                  key={lecture.id}
+                  className="h-auto md:w-[20rem] outline-1 w-[10rem] my-10"
+                >
+                  {/* Render lecture content as before */}
+                  <img
+                    src={`${lecture.image_url}`}
+                    alt={`${lecture.name}`}
+                    className="w-[100%] h-[10rem] bg-cover"
+                  />
+                  <h4 className="text-bold text-1xl pt-10 text-center">
+                    {lecture.name}
+                  </h4>
+                  <p className="text-1xl pt-10 text-center">
+                    {lecture.description}
+                  </p>
+                  <p className="text-bold pt-10 text-center">
+                    ${lecture.price} / Session
+                  </p>
+                  <div className="flex flex-row justify-center mt-10 items-center gap-4">
+                    <a
+                      href={lecture.web_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FacebookRoundedIcon />
+                    </a>
+                    <a
+                      href={lecture.web_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <TwitterIcon />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/your-instagram-url"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <InstagramIcon />
+                    </a>
+                    <button
+                      type="submit"
+                      onClick={() => {
+                        dispatch(setLectureId(lecture.id));
+                        navigate("/lecture_details");
+                      }}
+                    >
+                      Details
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
+
           <div className="flex flex-row justify-center items-center">
             <button
               type="button"
               onClick={handleNextSlide}
-              disabled={endIdx >= lectures.length}
+              disabled={endIdx >= lectures.length - 1}
               className={`${
                 endIdx >= lectures.length
-                  ? 'hover:bg-gray-400'
-                  : 'bg-green-800 hover:bg-green-800'
+                  ? "hover:bg-gray-400"
+                  : "bg-green-800 hover:bg-green-800"
               } bg-green-800 border border-green-800 hover:bg-green-800 font-bold py-2 px-4 rounded`}
             >
               <LuPlay className="play-icon" />
