@@ -20,6 +20,9 @@ const Reserve = () => {
   const { allLecture } = useSelector((state) => state.lecture);
   const { currentLectureId } = useSelector((state) => state.currentLecture);
 
+  // Filter out lectures with removed set to true
+  const filteredLectures = allLecture.filter((lecture) => !lecture.removed);
+
   useEffect(() => {
     const getall = async () => {
       setLoading(true);
@@ -96,8 +99,8 @@ const Reserve = () => {
               >
                 Select a Lecture
               </option>
-              {allLecture.map((item) => (
-                <option key={item.id} value={item.id} selected={item.id === currentLectureId}>
+              {filteredLectures.map((item) => (
+                <option key={item.id} value={item.id}>
                   {item.name}
                 </option>
               ))}
