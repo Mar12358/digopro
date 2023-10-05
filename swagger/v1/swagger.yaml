@@ -1,0 +1,138 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/lectures":
+    get:
+      summary: " Get a list of lectures"
+      tags:
+      - Lectures
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create a lecture
+      tags:
+      - Lectures
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image_url:
+                  type: string
+                description:
+                  type: string
+                web_link:
+                  type: string
+                price:
+                  type: number
+                  format: float
+              required:
+              - lecture_id
+              - date
+              - city
+  "/api/v1/lectures/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: lecture_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a specific lecture by its id
+      tags:
+      - Lectures
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: Mark a specific Lecture as removed
+      tags:
+      - Lectures
+      responses:
+        '200':
+          description: successful
+  "/api/v1/users/{user_id}/reservations":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a list of reservations for a specific user_id
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create a reservation for a specific user_id
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lecture_id:
+                  type: number
+                date:
+                  type: string
+                  format: date
+                city:
+                  type: string
+              required:
+              - lecture_id
+              - date
+              - city
+  "/api/v1/users/{user_id}/reservations/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: reservation_id
+      required: true
+      schema:
+        type: string
+    patch:
+      summary: Mark a specific Reservetion as removed
+      tags:
+      - Reservations
+      responses:
+        '200':
+          description: successful
+  "/api/v1/users":
+    get:
+      summary: Get the logged in current user
+      tags:
+      - Current User
+      description: Get the logged in current user
+      responses:
+        '200':
+          description: successful
+servers:
+- url: 'http://localhost:3000/' # Use this for development
+# - url: 'https://reserve-lectures.onrender.com/' # Use this for production

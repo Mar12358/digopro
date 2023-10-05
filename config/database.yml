@@ -1,0 +1,19 @@
+#
+# Set your database connection here. The development and test environments
+#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres # <<<< Change this to your postgres username
+  password: postgres # <<<< Change this to your postgres password
+development:
+  <<: *default
+  database: book-an-appointment_app_development
+test:
+  <<: *default
+  database: book-an-appointment_app_test
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>

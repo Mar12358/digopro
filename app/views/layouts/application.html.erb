@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reserve Your Classes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <% if user_signed_in? %> 
+    <div class="flex justify-end gap-3 p-3 border-r-4 items-center">
+      <p>Welcome <%= current_user.email %>     </p>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "border-solid border-blue-600 rounded-md p-1 bg-red-300 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50" %> 
+    </div> 
+    
+  <% end %>
+  <div class="flex justify-center">
+    <p class="notice text-center text-green-600 text-2xl w-1/4"><%= notice %></p> 
+  </div>
+    <%= yield %>
+  <p class="alert text-center text-red-700"><%= alert %></p> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+  </body>
+</html>

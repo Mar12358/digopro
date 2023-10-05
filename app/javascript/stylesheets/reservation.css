@@ -1,0 +1,25 @@
+.input-container {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontally center */
+  justify-content: center;
+  height: 100vh;
+}
+
+.second-input {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 50rem;
+  margin: 5rem 5rem;
+  height: 2rem;
+}
+
+.reservation {
+  width: 10rem;
+  height: 2rem;
+  margin: 5rem 5rem;
+}
