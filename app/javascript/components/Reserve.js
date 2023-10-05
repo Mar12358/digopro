@@ -72,30 +72,30 @@ const Reserve = () => {
   };
 
   return (
-    <div className="w-full bg-slate-300 h-[100vh] pt-[5rem] md:px-[5%] px-[2%]">
+    <div className="w-full bg-slate-300 h-[100vh] pt-[5rem] px-[2%]">
       <h1 className="text-center text-3xl font-bold py-5">
         Make a Reservation
       </h1>
 
       {loading ? (
-        <div className="flex justify-center items-center h-[100%]  w-full">
+        <div className="flex justify-center items-center h-[100%] w-full">
           <Loader />
         </div>
       ) : (
         <form
-          className=" md:w-[100%] flex flex-col md:justify-center md:items-center"
+          className=" flex flex-col justify-center items-center"
           onSubmit={handleAddReservation}
         >
           <div className=" flex flex-col md:mb-[3rem]">
             <select
               value={selectedLectureId}
               onChange={(e) => setSelectedLectureId(e.target.value)}
-              className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-full md:mx-[5%] md:w-[40rem]"
+              className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-[75vw] sm:w-[55vw] lg:w-[40rem]"
               required
             >
               <option
                 value=""
-                className="md:pl-[5rem] md:w-[20rem] h-[2rem] w-[5rem]"
+                className=" h-[2rem] w-[5rem]"
               >
                 Select a Lecture
               </option>
@@ -106,13 +106,13 @@ const Reserve = () => {
               ))}
             </select>
           </div>
-          <div className=" flex flex-col mt-[2.5rem] md:mt-[1px]">
+          <div className=" flex flex-col mt-[2.5rem] md:mt-[1px] justify-center items-center">
             <input
               type="date"
               placeholder="Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem]  w-full md:mx-[5%] md:w-[40rem]"
+              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem]  w-[75vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem]"
               required
             />
             <input
@@ -120,10 +120,10 @@ const Reserve = () => {
               placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-full md:mx-[5%] md:w-[40rem] pb-[2rem]"
+              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-[75vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem] pb-[2rem]"
               required
             />
-            <div className="mt-[0.5rem] flex justify-center md:justify-start w-[100%] md:mx-[5%] md:w-[40rem]">
+            <div className="mt-[0.5rem] flex justify-center w-[100%] md:w-[40rem]">
               <button className="form-button" type="submit" id="btn-submit">
                 Submit
               </button>
