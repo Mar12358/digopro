@@ -90,7 +90,7 @@ const Reserve = () => {
             <select
               value={selectedLectureId}
               onChange={(e) => setSelectedLectureId(e.target.value)}
-              className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-[75vw] sm:w-[55vw] lg:w-[40rem]"
+              className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-[55vw] sm:w-[55vw] lg:w-[40rem]"
               required
             >
               <option
@@ -112,7 +112,7 @@ const Reserve = () => {
               placeholder="Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem]  w-[75vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem]"
+              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem]  w-[55vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem]"
               required
             />
             <input
@@ -120,7 +120,7 @@ const Reserve = () => {
               placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-[75vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem] pb-[2rem]"
+              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-[55vw] sm:w-[55vw] md:mx-[5%] lg:w-[40rem] pb-[2rem]"
               required
             />
             <div className="mt-[0.5rem] flex justify-center w-[100%] md:w-[40rem]">

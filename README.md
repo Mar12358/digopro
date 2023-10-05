@@ -111,7 +111,10 @@ After you're finished please remove all the comments and instructions!
 ## 🛠 Kanban Board <a name="live-demo"></a> 
 - See the [Kanban Board](https://github.com/users/Mar12358/projects/7) for this project.
 - See the [Initial State](https://user-images.githubusercontent.com/120040536/269433958-8044a659-75da-453b-be9a-2be864fc0e78.png) of the Kanban Board.
-
+- Number of Team Members: **3**
+  - @Mar12358
+  - @edahigure
+  - @Cabraham1
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
