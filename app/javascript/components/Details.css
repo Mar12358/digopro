@@ -1,5 +1,4 @@
 @media only screen and (min-width: 1200px) {
-
   .container-main-details {
     display: flex;
     flex-direction: column;
@@ -26,16 +25,6 @@
     gap: 12px;
   }
 
-  .back-button {
-    height: 2em;
-    width: 10%;
-    background-color: #96c036;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0 25px 25px 0;
-  }
-
   .back-icon {
     height: 70%;
   }
@@ -149,24 +138,17 @@
   .img-big {
     display: block;
   }
+
   .img-small {
     display: none;
   }
+
   .back-button {
     display: none;
   }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .container-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 12px;
-    width: 80%;
-  } 
-
   .container-main-details {
     display: flex;
     flex-direction: column;
@@ -317,17 +299,13 @@
   .img-big {
     display: none;
   }
-    
+
   .img-small {
     display: block;
   }
-  
 }
 
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 992px)    {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .container-details {
     display: flex;
     flex-direction: column;
@@ -335,20 +313,12 @@
     gap: 12px;
     margin-bottom: 12px;
     width: 80%;
-  } 
+  }
 
   .container-main-details {
     display: flex;
     flex-direction: column;
     width: 75% !important;
-  }
-
-  .container-details {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 12px;
-    width: 80%;
   }
 
   .imageUrl {
@@ -487,24 +457,20 @@
   .img-big {
     display: none;
   }
-    
+
   .img-small {
     display: block;
   }
-  
-
 }
 
-
-@media only screen and (min-width: 576px) and (max-width: 768px)    {
-
+@media only screen and (min-width: 576px) and (max-width: 768px) {
   .container-main-details {
     display: flex;
     flex-direction: column;
     width: 75% !important;
   }
 
-  .container-extra-1{
+  .container-extra-1 {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -655,15 +621,13 @@
   .img-big {
     display: block;
   }
+
   .img-small {
     display: none;
   }
-
 }
 
-
-@media only screen and (max-width: 576px)   {
-
+@media only screen and (max-width: 576px) {
   .container-main-details {
     display: flex;
     flex-direction: column;
@@ -814,8 +778,8 @@
   .img-big {
     display: block;
   }
+
   .img-small {
     display: none;
   }
-
 }

@@ -172,9 +172,7 @@
   .label-size {
     width: 90%;
   }
-  
 }
-
 
 @media only screen and (min-width: 768px) {
   .wrapper-add-lecture {
@@ -265,5 +263,3 @@
     color: black;
   }
 }
-
-
