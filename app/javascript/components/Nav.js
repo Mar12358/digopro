@@ -9,13 +9,13 @@ import showError from '../Ui/ErrorAlert';
 import { setCurrentUser } from '../redux/user/userReducer';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
 
-import planetImg from '../Assets/planet_desktop.jpg';
-import facebookImg from '../Assets/facebook.png';
-import googlePlusLogoImg from '../Assets/google-plus-logo.png';
-import socialImg from '../Assets/social.png';
-import twitterImg from '../Assets/twitter.png';
-import vimeoImg from '../Assets/vimeo.png';
-import HamburgerImg from '../Assets/Hamburger.png';
+import planetImg from '../../../public/images/planet_desktop.jpg';
+import facebookImg from '../../../public/images/facebook.png';
+import googlePlusLogoImg from '../../../public/images/google-plus-logo.png';
+import socialImg from '../../../public/images/social.png';
+import twitterImg from '../../../public/images/twitter.png';
+import vimeoImg from '../../../public/images/vimeo.png';
+import HamburgerImg from '../../../public/images/Hamburger.png';
 
 const Nav = () => {
   const dispatch = useDispatch();
