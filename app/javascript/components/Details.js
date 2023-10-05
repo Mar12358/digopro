@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
-import configIcon from '../assets/images/config.png';
-import nextIcon from '../assets/images/next_white.png';
-import backIcon from '../assets/images/back.png';
-import discoverIcon from '../assets/images/discover.png';
-import arrowRight from '../assets/images/arrow_right.png';
+import configIcon from '../Assets/config.png';
+import nextIcon from '../Assets/next_white.png';
+import backIcon from '../Assets/back.png';
+import discoverIcon from '../Assets/discover.png';
+import arrowRight from '../asseAssetsts/arrow_right.png';
 
 const Details = () => {
   const { currentLectureId } = useSelector((store) => store.currentLecture);
