@@ -3,17 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const currentUserSlice = createSlice({
   name: 'currentUser',
   initialState: {
-    currentUser: 0,
-    status: 'no user',
+    currentUser: localStorage.getItem('currentUser') || 'null',
   },
   reducers: {
-    setCurrentUser: (state, action) => {
-      const newState = {
-        ...state,
-        currentUser: action.payload,
-      };
-      return newState;
-    },
+    setCurrentUser: (state, action) => ({
+      ...state,
+      currentUser: action.payload,
+    }),
   },
 });
 
