@@ -72,7 +72,7 @@ const Reserve = () => {
   };
 
   return (
-    <div className="w-full md:bg-slate-300 h-[100vh] pt-[5rem]">
+    <div className="w-full bg-slate-300 h-[100vh] pt-[5rem] md:px-[5%] px-[2%]">
       <h1 className="text-center text-3xl font-bold py-5">
         Make a Reservation
       </h1>
@@ -90,7 +90,7 @@ const Reserve = () => {
             <select
               value={selectedLectureId}
               onChange={(e) => setSelectedLectureId(e.target.value)}
-              className="md:w-[50rem] px-[1rem] md:border md:h-[5rem] h-[3rem]  rounded-[1rem] w-full "
+              className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-full md:mx-[5%] md:w-[40rem]"
               required
             >
               <option
@@ -112,7 +112,7 @@ const Reserve = () => {
               placeholder="Date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem] pt- w-full md:w-[50rem]"
+              className="mb-[2.5rem] md:h-[5rem] h-[3rem] rounded-[1rem]  w-full md:mx-[5%] md:w-[40rem]"
               required
             />
             <input
@@ -120,12 +120,12 @@ const Reserve = () => {
               placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-full md:w-[50rem] pb-[2rem]"
+              className=" md:h-[5rem] h-[3rem]  rounded-[1rem] w-full md:mx-[5%] md:w-[40rem] pb-[2rem]"
               required
             />
-            <div className="mt-[0.5rem] flex justify-center md:justify-start">
+            <div className="mt-[0.5rem] flex justify-center md:justify-start w-[100%] md:mx-[5%] md:w-[40rem]">
               <button className="form-button" type="submit" id="btn-submit">
-                Create Reservation
+                Submit
               </button>
             </div>
           </div>
