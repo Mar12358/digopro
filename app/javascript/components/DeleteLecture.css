@@ -56,3 +56,18 @@
   color: #4386bf;
   gap: 10px;
 }
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .Lesson-Panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 2%;
+    border-radius: 4px;
+    border: solid 1px #e8e8e8;
+    background-color: #fff;
+    width: 80%;
+    margin-left: 10%;
+  }
+}
