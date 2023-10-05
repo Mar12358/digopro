@@ -8,7 +8,6 @@ import { setAllReservation } from '../redux/reservation/reservationReducer';
 import showError from '../Ui/ErrorAlert';
 import { setCurrentUser } from '../redux/user/userReducer';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
-// import notify from '../Ui/SuccesAlert';
 
 import planetImg from '../images/planet_desktop.jpg';
 import facebookImg from '../images/facebook.png';
@@ -28,7 +27,6 @@ const Nav = () => {
         const response = await LectureService.getAllLectures();
         if (response) {
           dispatch(setAllLecture(response));
-          // notify('Lectures loaded successfully');
         } else {
           showError('Something went wrong!, try again');
         }
