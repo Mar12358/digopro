@@ -9,14 +9,6 @@ import showError from '../Ui/ErrorAlert';
 import { setCurrentUser } from '../redux/user/userReducer';
 import { setAllLecture } from '../redux/lecture/lectureReducer';
 
-import planetImg from '../images/planet_desktop.jpg';
-import facebookImg from '../images/facebook.png';
-import googlePlusLogoImg from '../images/google-plus-logo.png';
-import socialImg from '../images/social.png';
-import twitterImg from '../images/twitter.png';
-import vimeoImg from '../images/vimeo.png';
-import HamburgerImg from '../images/Hamburger.png';
-
 const Nav = () => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.currentUser);
@@ -68,7 +60,7 @@ const Nav = () => {
       <div className="white d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
         <div className="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
           <span className="fs-5">
-            <img src={planetImg} alt="planet" className="logo" />
+            <img src="/images/planet_desktop.jpg" alt="planet" className="logo" />
             {' '}
           </span>
         </div>
@@ -126,12 +118,12 @@ const Nav = () => {
           <ul>
             <li className="social">
               <a href="https://twitter.com/edahigure">
-                <img src={twitterImg} alt="twitter icon" />
+                <img src="/images/twitter.png" alt="twitter icon" />
               </a>
             </li>
             <li className="social">
               <a href="https://www.facebook.com/profile.php?id=61551901379880&is_tour_dismissed=true">
-                <img src={facebookImg} alt="facebook icon" />
+                <img src="/images/facebook.png" alt="facebook icon" />
               </a>
             </li>
 
@@ -140,7 +132,7 @@ const Nav = () => {
                 href="https://www.flaticon.com/free-icons/google-plus"
                 title="google plus icons"
               >
-                <img src={googlePlusLogoImg} alt="google icon" />
+                <img src="/images/google-plus-logo.png" alt="google icon" />
               </a>
             </li>
 
@@ -149,7 +141,7 @@ const Nav = () => {
                 href="https://www.flaticon.es/iconos-gratis/letra-v"
                 title="letra v iconos"
               >
-                <img src={vimeoImg} alt="vimeo icon" />
+                <img src="/images/vimeo.png" alt="vimeo icon" />
               </a>
             </li>
 
@@ -158,7 +150,7 @@ const Nav = () => {
                 href="https://www.flaticon.es/iconos-gratis/letra-v"
                 title="letra v iconos"
               >
-                <img src={socialImg} alt="pinterest icon" />
+                <img src="/images/social.png" alt="pinterest icon" />
               </a>
             </li>
           </ul>
@@ -177,7 +169,7 @@ const Nav = () => {
 
         <div className="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
           <div className=" d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src={HamburgerImg} alt="HamburgerImg" width="60" height="60" />
+            <img src="/images/Hamburger.png" alt="HamburgerImg" width="60" height="60" />
           </div>
           <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
 
