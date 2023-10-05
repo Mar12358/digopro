@@ -48,27 +48,8 @@ const Nav = () => {
       }
 
       try {
-        const getUser = async () => {
-          const url = 'http://localhost:3000/api/v1/users';
-          return new Promise((resolve, reject) => {
-            fetch(url)
-              .then((res) => res.json())
-              .then((userid) => {
-                dispatch(setCurrentUser(userid));
-                resolve(userid);
-              }).catch((err) => {
-                reject(err);
-              });
-          });
-        };
-        getUser();
-      } catch (error) {
-        showError('Request failed!', error);
-      }
-
-      try {
         const response = await LectureService.getReservation(currentUser);
-        if (response && response.length > 0) {
+        if (response) {
           // Sort reservations in descending order based on the created_at date
           response.sort(
             (a, b) => new Date(b.created_at) - new Date(a.created_at),
