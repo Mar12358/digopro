@@ -8,7 +8,7 @@ import configIcon from '../Assets/config.png';
 import nextIcon from '../Assets/next_white.png';
 import backIcon from '../Assets/back.png';
 import discoverIcon from '../Assets/discover.png';
-import arrowRight from '../asseAssetsts/arrow_right.png';
+import arrowRight from '../Assets/arrow_right.png';
 
 const Details = () => {
   const { currentLectureId } = useSelector((store) => store.currentLecture);
