@@ -57,21 +57,21 @@ const Details = () => {
 
           <div className="discover-more">
             <div>Discover more classes </div>
-            <img src={arrowRight} className="arrowRight-icon" alt="arrowRight icon" />
+            <img src="/images/arrow_right.png" className="arrowRight-icon" alt="arrowRight icon" />
           </div>
 
-          <img src={discoverIcon} className="discover-icon" alt="discover icon" />
+          <img src="/images/discover.png" className="discover-icon" alt="discover icon" />
 
           <NavLink to="/reserve" className="color-white next-button">
-            <img src={configIcon} className="config-icon" alt="config icon" />
+            <img src="/images/config.png" className="config-icon" alt="config icon" />
             <div className="color-white">Reserve</div>
-            <img src={nextIcon} className="next-icon" alt="next icon" />
+            <img src="/images/next_white.png" className="next-icon" alt="next icon" />
           </NavLink>
 
         </div>
 
         <NavLink to="/lectures" className="color-white back-button">
-          <img src={backIcon} className="back-icon" alt="back icon" />
+          <img src="/images/back.png" className="back-icon" alt="back icon" />
         </NavLink>
 
       </div>
