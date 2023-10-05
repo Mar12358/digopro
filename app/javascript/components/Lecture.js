@@ -59,7 +59,7 @@ const Lecture = () => {
   const displayedLectures = filteredLectures.slice(startIdx, endIdx);
 
   return (
-    <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-white">
+    <section className="md:w-full w-[100%] flex flex-col justify-center items-center h-full bg-slate-300">
       <div className="flex flex-col justify-center items-center py-3 pb-3">
         <h2 className="text-2xl">Our latest Lecture</h2>
         <p className="text-3xl">See all lectures</p>
@@ -85,7 +85,7 @@ const Lecture = () => {
             </button>
           </div>
 
-          <div className="grid md:grid-cols-3 md:grid-rows-3 gap-2 w-[100%] md:h-[35rem] h-full grid-cols-1 grid-row-2 justify-items-center">
+          <div className="grid xl:grid-cols-3 xl:grid-rows-3 gap-2 w-[100%] xl:h-[35rem] h-full grid-cols-1 grid-row-2 justify-items-center">
             {displayedLectures.map((lecture) => (
               <div
                 key={lecture.id}

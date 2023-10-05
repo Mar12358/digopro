@@ -1,10 +1,10 @@
-@media only screen and (max-width: 1235px) {
+@media only screen and (max-width: 576px) {
   .wrapper-add-lecture {
     display: flex;
     flex-direction: column;
     color: white;
-    font-size: 35px;
-    width: 75%;
+    font-size: 1rem;
+    width: 100%;
     padding: 24px;
     align-items: center;
     background: #96c036 url(../../../public/images/planet.png) no-repeat center center; /* Background color and image */
@@ -16,18 +16,18 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 1.5rem;
     line-height: 44px;
     text-align: center;
     color: rgb(215, 250, 248);
-    width: 100%;
+    width: 80%;
   }
 
   .form-add-lecture {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 90%;
+    width: 80%;
   }
 
   .items-form {
@@ -53,7 +53,7 @@
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 1rem;
     line-height: 24px;
     background: #ba4d00 !important;
     color: white;
@@ -86,20 +86,108 @@
   }
 }
 
-@media only screen and (min-width: 1235px) {
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  .wrapper-add-lecture {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    padding: 24px;
+    align-items: center;
+    background: #96c036 url(../../../public/images/planet.png) no-repeat center center; /* Background color and image */
+    background-size: cover; /* Adjust the size as needed */
+    background-blend-mode: multiply; /* Blend mode to make the image appear lighter */
+  }
+
+  .content {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 44px;
+    text-align: center;
+    color: rgb(215, 250, 248);
+    width: 80%;
+  }
+
+  .form-add-lecture {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+  }
+
+  .items-form {
+    margin-bottom: 24px;
+    border-width: 1px;
+    border-color: #dbd8d7;
+    border-radius: 5px;
+    color: gray;
+    height: 30px;
+    width: 100%;
+  }
+
+  .error-msg {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #979493;
+  }
+
+  .form-button {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 24px;
+    background: #ba4d00 !important;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 12px;
+    width: 50%;
+  }
+
+  .form-button:hover {
+    background: #fff5e1 !important;
+    color: #b84300;
+    border: 1px solid #ff6b00;
+    border-radius: 5px;
+  }
+
+  .textarea {
+    margin-bottom: 24px;
+    background: #fbf8f7;
+    height: 114px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+  }
+
+  .label-size {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
   .wrapper-add-lecture {
     display: flex;
     flex-direction: column;
     background-color: #96c036;
     color: grey;
     font-size: 35px;
-    width: 75%;
+    width: 100%;
     padding: 24px;
     align-items: center;
   }
 
   .content {
-    width: 90%;
+    width: 80%;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -128,6 +216,7 @@
     border-color: #dbd8d7;
     border-radius: 5px;
     height: 48px;
+    width: 400px;
   }
 
   .error-msg {
@@ -148,7 +237,7 @@
     background: #ba4d00 !important;
     color: white;
     border: none;
-    width: 122px;
+    width: 40%;
     height: 48px;
     border-radius: 5px;
   }

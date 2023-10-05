@@ -47,6 +47,7 @@ After you're finished please remove all the comments and instructions!
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
+  - [🛠 Kanban Board ](#-kanban-board-)
   - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites ](#prerequisites-)
@@ -107,11 +108,17 @@ After you're finished please remove all the comments and instructions!
 
 <!-- - Not available -->
 
+## 🛠 Kanban Board <a name="live-demo"></a> 
+- See the [Kanban Board](https://github.com/users/Mar12358/projects/7) for this project.
+- See the [Initial State](https://user-images.githubusercontent.com/120040536/269433958-8044a659-75da-453b-be9a-2be864fc0e78.png) of the Kanban Board.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 ## 🚀 Live Demo <a name="live-demo"></a> 
-
-
-
-[Live Demo Link](https://reserve-lectures.onrender.com)
+- [Live Demo Link](https://reserve-lectures.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,7 +158,7 @@ In order to run this project you need to have:
 ```sh
   npm install
 ```
-- Build the whole project at once (including db creation, migrations and seeds), run:
+- Build the whole project at once (including database creation, migrations and seeds), run:
 
 ```sh
   npm run project:build
@@ -181,8 +188,8 @@ In order to run this project you need to have:
 
 - For deployment:
   - Uncomment the line 28 ( # workers ENV.fetch("WEB_CONCURRENCY") { 4 }) on file `config\puma.rb`.
-  - Switch comments at for url on file `swagger\v1\swagger.yaml`
-  - 
+  - Switch comments for url attribute on file `swagger\v1\swagger.yaml`
+
 ### API Documentation <a name="api-documentation"></a>
 
 Once you ran the server, navigate to `http://127.0.0.1:3000/api-docs`.

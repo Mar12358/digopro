@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import DeleteLecture from '../components/DeleteLecture';
 import { fetchMessages } from '../redux/lecture/lectureReducer';
 
-export default function DeletePage() {
+const DeletePage = () => {
   const dispatch = useDispatch();
 
   const { allLecture, status } = useSelector((state) => state.lecture);
@@ -36,4 +36,6 @@ export default function DeletePage() {
       {myLectures}
     </div>
   );
-}
+};
+
+export default DeletePage;
