@@ -77,25 +77,25 @@ const MyReservations = () => {
             return (
               <li
                 key={reservation.id}
-                className="px-[5rem] my-[1rem] rounded-[1rem] py-[2rem] border-y-4 hover:border-blue-500"
+                className="md:px-[5rem] my-[1rem] rounded-[1rem] py-[2rem] border-y-4 hover:border-blue-500"
               >
                 {/* Find the corresponding lecture by matching lecture_id */}
                 {allLecture.map((lecture) => (lecture?.id === reservation?.lecture_id ? (
-                  <span
-                    className="pl-[1rem] text-2xl font-bold "
+                  <p
+                    className="pl-[1rem] md:text-2xl text-1xl font-bold "
                     key={lecture?.id}
                   >
                     {lecture?.name}
-                  </span>
+                  </p>
                 ) : null))}
-                <span className="md:text-sm md:pl-[1rem] pl-2px text-xs">
+                <p className="md:text-sm md:pl-[1rem] pl-[1rem] text-xs">
                   {reservation.date}
-                </span>
-                <span className="md:text-sm md:pl-[1rem]  pl-2px text-xs">
+                </p>
+                <p className="md:text-sm md:pl-[1rem]  pl-[1rem] text-xs">
                   Location:
                   {' '}
                   {reservation?.city}
-                </span>
+                </p>
                 <button
                   onClick={() => handleDeleteReservation(reservation?.id)}
                   className="px-4 py-2 text-white bg-red-500 rounded-full hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300"
