@@ -5,22 +5,22 @@
 
   <div class="flex flex-col justify-center items-center gap-3">
     <div class="field">
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Username", class: "rounded-[1rem] h-[3rem]" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Username", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
      <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "rounded-[1rem] h-[3rem]" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password", class: "rounded-[1rem] h-[3rem]" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password confirmation", class: "rounded-[1rem] h-[3rem]" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"Password confirmation", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
 
     <div class="actions bg-blue-500 flex items-center pb-2">
-      <%= f.submit "Sign up", class: "hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center text-center" %>
+      <%= f.submit "Sign up", class: "hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 flex items-center justify-center text-center w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
       
     <br />
