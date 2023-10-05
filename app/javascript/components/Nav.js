@@ -1,7 +1,7 @@
 import './Nav.css';
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useSelector } from 'react-redux';
 
 import LectureService from '../Service/classApi';
@@ -13,8 +13,7 @@ import { setAllLecture } from '../redux/lecture/lectureReducer';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  // const { currentUser } = useSelector((state) => state.currentUser);
-  const currentUser = 1;
+  const { currentUser } = useSelector((state) => state.currentUser);
   useEffect(() => {
     const getall = async () => {
       try {
