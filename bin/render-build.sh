@@ -3,8 +3,8 @@
 set -o errexit
 
 bundle install
-npm install 
-yarn install --ignore-engines
+
+yarn install
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 bundle exec rake db:create
