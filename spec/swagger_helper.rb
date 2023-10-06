@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-if Rails.env.development?
-  url = 'http://localhost:3000/'
-elsif Rails.env.production?
+if Rails.env.production?
   url = 'https://reserve-lectures.onrender.com/'
+else
+  url = 'http://127.0.0.1:3000/'
 end
 
 RSpec.configure do |config|
