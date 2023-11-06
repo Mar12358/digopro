@@ -1,19 +1,10 @@
-<a name="readme-top"></a>
-
 <div align="center">
   <br/>
   <br/>
+  <img src="./logo_MG.png" alt="logo" width="250"  height="auto" />
   <br/>
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <br/>
-  <h1><b>Book An Appointment</b></h1><a name="about-project"></a>
+  <h1 style="font-size: 40px"><b>Prodigo</b><br/></h1>
 </div>
-
-
-
-
-
-
 
 <!--
 HOW TO USE:
@@ -67,7 +58,7 @@ After you're finished please remove all the comments and instructions!
 
 # 📖 Book An Appointment <a name="about-project"></a>
 
-> This is a 2 apps in 1 web app built connecting React/Redux (Front-End) with Ruby on Rails API (Back-End). You can Add/Remove Lectures and make Reservations.
+> This is a 2 apps in 1 web app built connecting React/Redux (Front-End) with Ruby on Rails API (Back-End). You can Add/Remove Products and make Reservations.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -101,27 +92,22 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 - **API Endpoints**
-- **Lecture**
-- **Reservation**
+- **Code base for building Prodigo**
+- **Reservations**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- - Not available -->
 
 ## 🛠 Kanban Board <a name="live-demo"></a> 
-- See the [Kanban Board](https://github.com/users/Mar12358/projects/7) for this project.
-- See the [Initial State](https://user-images.githubusercontent.com/120040536/269433958-8044a659-75da-453b-be9a-2be864fc0e78.png) of the Kanban Board.
-- Number of Team Members: **3**
-  - @Mar12358
-  - @edahigure
-  - @Cabraham1
+- See the [Kanban Board](https://github.com/users/Mar12358/projects/8) for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 ## 🚀 Live Demo <a name="live-demo"></a> 
-- [Live Demo Link](https://reserve-lectures.onrender.com)
+- Coming soon... <!-- [Live Demo Link](https://reserve-lectures.onrender.com) -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -229,25 +215,13 @@ Example:
 - LinkedIn: [Martin Ezequiel Gonzalez](https://www.linkedin.com/in/martin-ezequiel/)
 
 
-👤 **Abraham Christopher**
-
-- GitHub: [@cabraham1](https://github.com/cabraham1)
-- Twitter: [@cabrahama](https://twitter.com/_cabraham)
-- LinkedIn: [Abraham Christopher](https://www.linkedin.com/in/abrahamchristopher)
-
-
-👤 **Edahi Gutiérrez**
-
-- GitHub: [@edahigure](https://github.com/edahigure)
-- Twitter: [@edahigure](https://twitter.com/edahigure)
-- LinkedIn: [edahigure](https://linkedin.com/in/edahigure)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
+- [ ] **Build Prodigo**
 - [ ] **Improve Style**
 - [ ] **Add Admin priviledges**
 
@@ -277,7 +251,7 @@ If you like this project, please give it a ⭐️!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for this opportunity to learn and grow as a developer.
+Coming soon...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -291,9 +265,6 @@ I would like to thank Microverse for this opportunity to learn and grow as a dev
   
   <br>
 
-- **Can I use this project for my own purposes?**
-
-  - [ ] **Yes, you can.**
 
 
 
