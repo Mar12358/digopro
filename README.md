@@ -34,7 +34,7 @@ After you're finished please remove all the comments and instructions!
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Book An Appointment ](#-book-an-appointment-)
+- [📖 Prodigo ](#-prodigo-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -56,7 +56,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Book An Appointment <a name="about-project"></a>
+# 📖 Prodigo <a name="about-project"></a>
 
 > This is a 2 apps in 1 web app built connecting React/Redux (Front-End) with Ruby on Rails API (Back-End). You can Add/Remove Products and make Reservations.
 
@@ -134,8 +134,8 @@ In order to run this project you need to have:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Mar12358/book-an-appointment.git book-an-appointment
-  cd book-an-appointment
+  git clone https://github.com/Mar12358/prodigo.git prodigo
+  cd prodigo
 ```
 
 - Ensure you set your current ruby version on Gemfile.
