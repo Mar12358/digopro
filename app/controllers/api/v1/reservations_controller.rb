@@ -11,11 +11,9 @@ class Api::V1::ReservationsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @lecture = Lecture.find(params[:reservation][:lecture_id]) # Get lecture_id from the JSON request body
+    @product = Product.find(params[:reservation][:product_id]) # Get product_id from the JSON request body
     @reservation = @user.reservations.new(
-      lecture: @lecture,
-      date: reservation_params[:date],
-      city: reservation_params[:city]
+      product: @product
     )
 
     if @reservation.save
