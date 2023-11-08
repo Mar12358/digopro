@@ -3,11 +3,11 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import LectureService from '../Service/classApi';
+import ProductService from '../Service/classApi';
 import { setAllReservation } from '../redux/reservation/reservationReducer';
 import showError from '../Ui/ErrorAlert';
 import { setCurrentUser } from '../redux/user/userReducer';
-import { setAllLecture } from '../redux/lecture/lectureReducer';
+import { setAllProduct } from '../redux/product/productReducer';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -16,9 +16,9 @@ const Nav = () => {
   useEffect(() => {
     const getall = async () => {
       try {
-        const response = await LectureService.getAllLectures();
+        const response = await ProductService.getAllProducts();
         if (response) {
-          dispatch(setAllLecture(response));
+          dispatch(setAllProduct(response));
         } else {
           showError('Something went wrong!, try again');
         }
@@ -26,7 +26,7 @@ const Nav = () => {
         showError('Request failed!', error);
       }
       try {
-        const response = await LectureService.getCurrentUser();
+        const response = await ProductService.getCurrentUser();
         if (response) {
           localStorage.setItem('currentUser', response);
           dispatch(setCurrentUser(response));
@@ -38,7 +38,7 @@ const Nav = () => {
       }
 
       try {
-        const response = await LectureService.getReservation(currentUser);
+        const response = await ProductService.getReservation(currentUser);
         if (response) {
           // Sort reservations in descending order based on the created_at date
           response.sort(
@@ -68,10 +68,10 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               id="hide-1"
-              to="/lectures"
+              to="/products"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              LECTURES
+              PRODUCTS
             </NavLink>
           </li>
 
@@ -98,19 +98,19 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               id="hide-1"
-              to="/add_lecture"
+              to="/add_product"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              ADD LECTURE
+              ADD PRODUCT
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               id="hide-1"
-              to="/delete_lecture"
+              to="/delete_product"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              DELETE LECTURE
+              DELETE PRODUCT
             </NavLink>
           </li>
         </ul>
@@ -175,9 +175,9 @@ const Nav = () => {
 
             <li className="dropdown-item">
               <NavLink
-                to="/lectures"
+                to="/products"
               >
-                LECTURES
+                PRODUCTS
               </NavLink>
             </li>
 
@@ -199,17 +199,17 @@ const Nav = () => {
 
             <li className="dropdown-item">
               <NavLink
-                to="/add_lecture"
+                to="/add_product"
               >
-                ADD LECTURE
+                ADD PRODUCT
               </NavLink>
             </li>
 
             <li className="dropdown-item">
               <NavLink
-                to="/delete_lecture"
+                to="/delete_product"
               >
-                DELETE LECTURE
+                DELETE PRODUCT
               </NavLink>
             </li>
           </ul>

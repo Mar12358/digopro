@@ -1,25 +1,25 @@
 import { request } from '../hook/Api';
 
-class LectureService {
-  static async createLectures(lectureData) {
+class ProductService {
+  static async createProducts(productData) {
     const response = await request(
-      '/api/v1/lectures',
+      '/api/v1/products',
       'POST',
-      lectureData,
+      productData,
       false,
       false,
     );
     return response;
   }
 
-  static async getAllLectures() {
-    const response = await request('/api/v1/lectures', 'GET', {}, false);
+  static async getAllProducts() {
+    const response = await request('/api/v1/products', 'GET', {}, false);
     return response;
   }
 
-  static async getSingleLecture(id) {
+  static async getSingleProduct(id) {
     const response = await request(
-      `/api/v1/lectures/${id}`,
+      `/api/v1/products/${id}`,
       'GET',
       {},
       false,
@@ -72,9 +72,9 @@ class LectureService {
     return response;
   }
 
-  static async removeLecture(lectureId) {
+  static async removeProduct(productId) {
     const response = await request(
-      `/api/v1/lectures/${lectureId}`,
+      `/api/v1/products/${productId}`,
       'PATCH',
       {},
       false,
@@ -84,4 +84,4 @@ class LectureService {
   }
 }
 
-export default LectureService;
+export default ProductService;

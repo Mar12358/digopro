@@ -4,18 +4,18 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/v1/lectures":
+  "/api/v1/products":
     get:
-      summary: " Get a list of lectures"
+      summary: " Get a list of products"
       tags:
-      - Lectures
+      - Products
       responses:
         '200':
           description: successful
     post:
-      summary: Create a lecture
+      summary: Create a product
       tags:
-      - Lectures
+      - Products
       parameters: []
       responses:
         '200':
@@ -38,32 +38,30 @@ paths:
                   type: number
                   format: float
               required:
-              - lecture_id
-              - date
-              - city
-  "/api/v1/lectures/{id}":
+              - product_id
+  "/api/v1/products/{id}":
     parameters:
     - name: id
       in: path
-      description: lecture_id
+      description: product_id
       required: true
       schema:
         type: string
     get:
-      summary: Get a specific lecture by its id
+      summary: Get a specific product by its id
       tags:
-      - Lectures
+      - Products
       responses:
         '200':
           description: successful
     patch:
-      summary: Mark a specific Lecture as removed
+      summary: Mark a specific Product as removed
       tags:
-      - Lectures
+      - Products
       responses:
         '200':
           description: successful
-  "/api/v1/users/{user_id}/reservations":
+  "/api/v1/users/{user_id}/on_cart_products":
     parameters:
     - name: user_id
       in: path
@@ -72,16 +70,16 @@ paths:
       schema:
         type: string
     get:
-      summary: Get a list of reservations for a specific user_id
+      summary: Get a list of Products on Cart for a specific user_id
       tags:
-      - Reservations
+      - Products on Cart
       responses:
         '200':
           description: successful
     post:
-      summary: Create a reservation for a specific user_id
+      summary: Create a Products on Cart for a specific user_id
       tags:
-      - Reservations
+      - Products on Cart
       parameters: []
       responses:
         '200':
@@ -92,18 +90,11 @@ paths:
             schema:
               type: object
               properties:
-                lecture_id:
+                product_id:
                   type: number
-                date:
-                  type: string
-                  format: date
-                city:
-                  type: string
               required:
-              - lecture_id
-              - date
-              - city
-  "/api/v1/users/{user_id}/reservations/{id}":
+              - product_id
+  "/api/v1/users/{user_id}/on_cart_products/{id}":
     parameters:
     - name: user_id
       in: path
@@ -113,14 +104,14 @@ paths:
         type: string
     - name: id
       in: path
-      description: reservation_id
+      description: on_cart_products_id
       required: true
       schema:
         type: string
     patch:
-      summary: Mark a specific Reservetion as removed
+      summary: Mark a specific Products on Cart as removed
       tags:
-      - Reservations
+      - Products on Cart
       responses:
         '200':
           description: successful

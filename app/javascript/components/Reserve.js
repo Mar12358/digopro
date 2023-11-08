@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAllLecture } from '../redux/lecture/lectureReducer';
-import { setLectureId } from '../redux/lecture/currentLectureSlice';
-import LectureService from '../Service/classApi';
+import { setAllProduct } from '../redux/product/productReducer';
+import { setProductId } from '../redux/product/currentProductSlice';
+import ProductService from '../Service/classApi';
 import '../stylesheets/reservation.css';
 import Loader from '../Ui/Loader';
 // import notify from '../Ui/SuccesAlert';
@@ -14,23 +14,23 @@ const Reserve = () => {
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState('');
   const [city, setCity] = useState('');
-  const [selectedLectureId, setSelectedLectureId] = useState('');
+  const [selectedProductId, setSelectedProductId] = useState('');
   const [loading, setLoading] = useState(false);
   const { currentUser } = useSelector((state) => state.currentUser);
-  const { allLecture } = useSelector((state) => state.lecture);
-  const { currentLectureId } = useSelector((state) => state.currentLecture);
+  const { allProduct } = useSelector((state) => state.product);
+  const { currentProductId } = useSelector((state) => state.currentProduct);
 
-  // Filter out lectures with removed set to true
-  const filteredLectures = allLecture.filter((lecture) => !lecture.removed);
+  // Filter out products with removed set to true
+  const filteredProducts = allProduct.filter((product) => !product.removed);
 
   useEffect(() => {
     const getall = async () => {
       setLoading(true);
       try {
-        const response = await LectureService.getAllLectures();
+        const response = await ProductService.getAllProducts();
         if (response) {
           setLoading(false);
-          dispatch(setAllLecture(response));
+          dispatch(setAllProduct(response));
         } else {
           showError('Something went wrong!, try again');
         }
@@ -40,26 +40,26 @@ const Reserve = () => {
       }
     };
     getall();
-    setSelectedLectureId(currentLectureId);
-  }, [currentLectureId, dispatch]);
+    setSelectedProductId(currentProductId);
+  }, [currentProductId, dispatch]);
 
   const handleAddReservation = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const obj = {
-        lecture_id: selectedLectureId,
+        product_id: selectedProductId,
         date: startDate,
         city,
       };
-      const response = await LectureService.createReservation(currentUser, obj);
+      const response = await ProductService.createReservation(currentUser, obj);
       if (response) {
         setLoading(false);
         // notify('Reservation created successfully');
         setStartDate('');
         setCity('');
-        setSelectedLectureId('');
-        dispatch(setLectureId(null));
+        setSelectedProductId('');
+        dispatch(setProductId(null));
         navigate('/my-reservations');
       } else {
         showError('Something went wrong!, try again');
@@ -88,8 +88,8 @@ const Reserve = () => {
         >
           <div className=" flex flex-col md:mb-[3rem]">
             <select
-              value={selectedLectureId}
-              onChange={(e) => setSelectedLectureId(e.target.value)}
+              value={selectedProductId}
+              onChange={(e) => setSelectedProductId(e.target.value)}
               className="px-[1rem] md:border md:h-[5rem] h-[3rem] rounded-[1rem] w-[55vw] sm:w-[55vw] lg:w-[40rem]"
               required
             >
@@ -97,9 +97,9 @@ const Reserve = () => {
                 value=""
                 className=" h-[2rem] w-[5rem]"
               >
-                Select a Lecture
+                Select a Product
               </option>
-              {filteredLectures.map((item) => (
+              {filteredProducts.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.name}
                 </option>

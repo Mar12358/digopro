@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  currentLectureId: null,
+  currentProductId: null,
   status: 'not loaded',
 };
 /* eslint no-param-reassign: "error" */
 
-const currentLectureSlice = createSlice({
+const currentProductSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    setLectureId: (state, action) => {
+    setProductId: (state, action) => {
       const id = action.payload;
       const newState = {
         state,
-        currentLectureId: id,
+        currentProductId: id,
         status: 'loaded',
       };
       return newState;
@@ -22,5 +22,5 @@ const currentLectureSlice = createSlice({
   },
 });
 
-export const { setLectureId } = currentLectureSlice.actions;
-export default currentLectureSlice.reducer;
+export const { setProductId } = currentProductSlice.actions;
+export default currentProductSlice.reducer;

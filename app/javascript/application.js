@@ -6,9 +6,9 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Reserve from './components/Reserve';
 import Nav from './components/Nav';
-import Lecture from './components/Lecture';
+import Product from './components/Product';
 import MyReservations from './components/MyReservations';
-import AddLecture from './components/AddLecture';
+import AddProduct from './components/AddProduct';
 import DeletePage from './pages/DeletePage';
 import Details from './components/Details';
 
@@ -16,13 +16,13 @@ const App = () => (
   <div className="container-column">
     <Nav />
     <Routes className="container-routes">
-      <Route index element={<Lecture />} />
-      <Route path="lectures" element={<Lecture />} />
+      <Route index element={<Product />} />
+      <Route path="products" element={<Product />} />
       <Route path="reserve" element={<Reserve />} />
       <Route path="my-reservations" element={<MyReservations />} />
-      <Route path="add_lecture" element={<AddLecture />} />
-      <Route path="delete_lecture" element={<DeletePage />} />
-      <Route path="lecture_details" element={<Details />} />
+      <Route path="add_product" element={<AddProduct />} />
+      <Route path="delete_product" element={<DeletePage />} />
+      <Route path="product_details" element={<Details />} />
     </Routes>
   </div>
 );

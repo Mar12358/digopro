@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-const url = 'http://localhost:3000/api/v1/lectures';
+const url = 'http://localhost:3000/api/v1/products';
 
 export const fetchMessages = createAsyncThunk('messages/fetchMessages', async () => {
   try {
@@ -13,22 +13,22 @@ export const fetchMessages = createAsyncThunk('messages/fetchMessages', async ()
   }
 });
 
-const lectureSlice = createSlice({
-  name: 'lecture',
+const productSlice = createSlice({
+  name: 'product',
   initialState: {
-    allLecture: [],
+    allProduct: [],
     status: 'no deleted',
   },
   reducers: {
-    setAllLecture: (state, action) => ({
+    setAllProduct: (state, action) => ({
       ...state,
-      allLecture: action.payload,
+      allProduct: action.payload,
     }),
-    removeLecture: (state, action) => {
+    removeProduct: (state, action) => {
       const id = action.payload;
       const newState = {
         state,
-        allLecture: [...state.allLecture.filter((item) => item.id !== id)],
+        allProduct: [...state.allProduct.filter((item) => item.id !== id)],
         status: 'deleted',
       };
       return newState;
@@ -52,13 +52,13 @@ const lectureSlice = createSlice({
           newMessageList.push(newMessage);
         });
 
-        return { allLecture: newMessageList, status: 'succeeded' };
+        return { allProduct: newMessageList, status: 'succeeded' };
       })
       .addCase(fetchMessages.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(fetchMessages.rejected, (state, action) => ({ ...state, status: 'failed', error: action.error.message }));
   },
 });
 
-export const { setAllLecture, removeLecture } = lectureSlice.actions;
+export const { setAllProduct, removeProduct } = productSlice.actions;
 
-export default lectureSlice.reducer;
+export default productSlice.reducer;
