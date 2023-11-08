@@ -5,11 +5,22 @@
 
   <div class="flex flex-col justify-center items-center gap-3">
     <div class="field">
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Username", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full Name", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
      <div class="field">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
     </div>
+    <div class="field">
+      <%= f.text_field :phone_number1, autofocus: true, autocomplete: "phone_number1", placeholder: "Phone Number", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :phone_number2, autofocus: true, autocomplete: "phone_number2", placeholder: "Phone Number (Second)", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :shipping_address, autofocus: true, autocomplete: "shipping_address", placeholder: "Shipping Address", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
+    </div>
+    
+    
 
     <div class="field">
       <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password", class: "rounded-[1rem] h-[3rem] w-[95vw] sm:w-[80vw] md:w-[50vw]" %>
