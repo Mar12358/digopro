@@ -1,5 +1,5 @@
-class AddRemovedToLectures < ActiveRecord::Migration[7.0]
+class AddRemovedToProducts < ActiveRecord::Migration[7.0]
   def change
-    add_column :lectures, :removed, :boolean, default: false
+    add_column :products, :removed, :boolean, default: false
   end
 end
