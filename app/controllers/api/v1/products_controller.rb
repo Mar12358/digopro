@@ -16,14 +16,14 @@ class Api::V1::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-      name: reservation_params[:name],
-      description: reservation_params[:description],
-      image_url: reservation_params[:image_url],
-      category: reservation_params[:category],
-      year: reservation_params[:year],
-      is_presice_year: reservation_params[:is_presice_year],
-      price: reservation_params[:price],
-      color: reservation_params[:color]
+      name: product_params[:name],
+      description: product_params[:description],
+      image_url: product_params[:image_url],
+      category: product_params[:category],
+      year: product_params[:year],
+      is_presice_year: product_params[:is_presice_year],
+      price: product_params[:price],
+      color: product_params[:color]
     )
 
     if @product.save
@@ -39,7 +39,7 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def reservation_params
+  def product_params
     params.require(:product).permit(:name, :description, :image_url, :category, :year, :is_presice_year, :price, :color)
   end
 

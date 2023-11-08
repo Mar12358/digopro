@@ -39,8 +39,6 @@ paths:
                   format: float
               required:
               - product_id
-              - date
-              - city
   "/api/v1/products/{id}":
     parameters:
     - name: id
@@ -63,7 +61,7 @@ paths:
       responses:
         '200':
           description: successful
-  "/api/v1/users/{user_id}/reservations":
+  "/api/v1/users/{user_id}/on_cart_products":
     parameters:
     - name: user_id
       in: path
@@ -72,16 +70,16 @@ paths:
       schema:
         type: string
     get:
-      summary: Get a list of reservations for a specific user_id
+      summary: Get a list of Products on Cart for a specific user_id
       tags:
-      - Reservations
+      - Products on Cart
       responses:
         '200':
           description: successful
     post:
-      summary: Create a reservation for a specific user_id
+      summary: Create a Products on Cart for a specific user_id
       tags:
-      - Reservations
+      - Products on Cart
       parameters: []
       responses:
         '200':
@@ -94,16 +92,9 @@ paths:
               properties:
                 product_id:
                   type: number
-                date:
-                  type: string
-                  format: date
-                city:
-                  type: string
               required:
               - product_id
-              - date
-              - city
-  "/api/v1/users/{user_id}/reservations/{id}":
+  "/api/v1/users/{user_id}/on_cart_products/{id}":
     parameters:
     - name: user_id
       in: path
@@ -113,14 +104,14 @@ paths:
         type: string
     - name: id
       in: path
-      description: reservation_id
+      description: on_cart_products_id
       required: true
       schema:
         type: string
     patch:
-      summary: Mark a specific Reservetion as removed
+      summary: Mark a specific Products on Cart as removed
       tags:
-      - Reservations
+      - Products on Cart
       responses:
         '200':
           description: successful

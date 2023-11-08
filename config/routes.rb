@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :pictures, only: [:index, :show, :create, :update]
       resources :products, only: [:index, :show, :create, :update]
       resources :users, only: [:index, :show] do
+        resources :on_cart_products, only: [:index, :create, :update]
         resources :reservations, only: [:index, :create, :update]
       end
     end

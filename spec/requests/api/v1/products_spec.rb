@@ -33,7 +33,7 @@ RSpec.describe 'api/v1/products', type: :request do
             price: { type: :decimal },
             color: { type: :string }
           },
-          required: %w[product_id date city]
+          required: %w[product_id]
         }
 
         after do |example|

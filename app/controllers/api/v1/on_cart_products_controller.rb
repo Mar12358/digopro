@@ -23,7 +23,8 @@ class Api::V1::OnCartProductsController < ApplicationController
     else
       respond_to do |format|
         format.json do
-          render json: JSON.pretty_generate(@on_cart_product.errors.full_messages.as_json), status: :unprocessable_entity
+          render json: JSON.pretty_generate(@on_cart_product.errors.full_messages.as_json),
+                 status: :unprocessable_entity
         end
       end
     end
