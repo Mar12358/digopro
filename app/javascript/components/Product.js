@@ -75,6 +75,7 @@ const Product = () => {
               type="button"
               onClick={handlePrevSlide}
               disabled={currentSlide === 0}
+              aria-label="Previous Slide"
               className={`${
                 currentSlide === 0
                   ? 'hover:bg-gray-400'
@@ -109,11 +110,12 @@ const Product = () => {
                   {' '}
                   / Session
                 </p>
-                <div className="flex flex-row justify-center mt-10 items-center gap-4">
+                <div className="flex flex-row justify-center mt-10 items-center gap-4" aria-label="Input Fields Container">
                   <a
                     href={product.web_link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Web Link"
                   >
                     <FacebookRoundedIcon />
                   </a>
@@ -121,6 +123,7 @@ const Product = () => {
                     href={product.web_link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Web Link"
                   >
                     <TwitterIcon />
                   </a>
@@ -128,6 +131,7 @@ const Product = () => {
                     href="https://www.instagram.com/your-instagram-url"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Web Link"
                   >
                     <InstagramIcon />
                   </a>
@@ -137,6 +141,7 @@ const Product = () => {
                       dispatch(setProductId(product.id));
                       navigate('/product_details');
                     }}
+                    aria-label="Submit button"
                   >
                     Details
                   </button>
