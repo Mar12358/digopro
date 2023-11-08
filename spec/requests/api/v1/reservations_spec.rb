@@ -29,11 +29,11 @@ RSpec.describe 'api/v1/reservations', type: :request do
         parameter name: :reservation, in: :body, schema: {
           type: :object,
           properties: {
-            lecture_id: { type: :number },
+            product_id: { type: :number },
             date: { type: :string, format: :date },
             city: { type: :string }
           },
-          required: %w[lecture_id date city]
+          required: %w[product_id date city]
         }
 
         after do |example|
