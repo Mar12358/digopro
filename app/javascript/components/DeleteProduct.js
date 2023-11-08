@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './DeleteLecture.css';
+import './DeleteProduct.css';
 import { useDispatch } from 'react-redux';
-import LectureService from '../Service/classApi';
+import ProductService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
-import { removeLecture, setAllLecture } from '../redux/lecture/lectureReducer';
+import { removeProduct, setAllProduct } from '../redux/product/productReducer';
 
-const DeleteLecture = (props) => {
+const DeleteProduct = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const getall = async () => {
       try {
-        const response = await LectureService.getAllLectures();
+        const response = await ProductService.getAllProducts();
         if (response) {
-          dispatch(setAllLecture(response));
+          dispatch(setAllProduct(response));
         } else {
           showError('Something went wrong!, try again');
         }
@@ -26,11 +26,11 @@ const DeleteLecture = (props) => {
     getall();
   }, [dispatch]);
 
-  const handleDeleteLecture = async (lectureId) => {
+  const handleDeleteProduct = async (productId) => {
     try {
-      const response = await LectureService.removeLecture(lectureId);
+      const response = await ProductService.removeProduct(productId);
       if (response.message) {
-        dispatch(removeLecture(lectureId));
+        dispatch(removeProduct(productId));
       } else {
         showError('Request failed!');
       }
@@ -48,7 +48,7 @@ const DeleteLecture = (props) => {
 
       <div className="container-1">
         <ul className="book-data">
-          <li className="lecture-id">
+          <li className="product-id">
             ID
             {id}
           </li>
@@ -60,7 +60,7 @@ const DeleteLecture = (props) => {
         <button
           type="submit"
           onClick={() => {
-            handleDeleteLecture(id);
+            handleDeleteProduct(id);
           }}
         >
           Remove
@@ -72,14 +72,14 @@ const DeleteLecture = (props) => {
   );
 };
 
-DeleteLecture.propTypes = {
+DeleteProduct.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
 };
 
-DeleteLecture.defaultProps = {
+DeleteProduct.defaultProps = {
   id: 'none',
   name: 'none',
 };
 
-export default DeleteLecture;
+export default DeleteProduct;

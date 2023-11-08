@@ -1,62 +1,62 @@
-import './AddLecture.css';
+import './AddProduct.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LectureService from '../Service/classApi';
+import ProductService from '../Service/classApi';
 import showError from '../Ui/ErrorAlert';
 
-const AddLecture = () => {
+const AddProduct = () => {
   const navigate = useNavigate();
-  const [lectureName, setLectureName] = useState('');
+  const [productName, setProductName] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [lectureDesctiption, setLectureDescription] = useState('');
-  const [lectureWeb, setLectureWeb] = useState('');
-  const [lecturePrice, setLecturePrice] = useState('');
+  const [productDesctiption, setProductDescription] = useState('');
+  const [productWeb, setProductWeb] = useState('');
+  const [productPrice, setProductPrice] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const obj = {
-        name: lectureName,
+        name: productName,
         image_url: imageUrl,
-        description: lectureDesctiption,
-        web_link: lectureWeb,
-        price: lecturePrice,
+        description: productDesctiption,
+        web_link: productWeb,
+        price: productPrice,
       };
-      const response = await LectureService.createLectures(obj);
+      const response = await ProductService.createProducts(obj);
       if (response) {
-        // notify("Lecture created successfully");
-        setLectureName('');
+        // notify("Product created successfully");
+        setProductName('');
         setImageUrl('');
-        setLectureDescription('');
-        setLectureWeb('');
-        setLecturePrice('');
-        navigate('/lectures');
+        setProductDescription('');
+        setProductWeb('');
+        setProductPrice('');
+        navigate('/products');
       } else {
         showError('Something went wrong!, try again');
       }
     } catch (error) {
-      showError('Lecture creation failed!', error);
+      showError('Product creation failed!', error);
     }
   };
 
   return (
 
-    <section className="wrapper-add-lecture" id="contact">
+    <section className="wrapper-add-product" id="contact">
 
       <h2 className="content">
         We are always interested in creating new projects,
-        so if you would like to add one lecture please fill this form.
+        so if you would like to add one product please fill this form.
       </h2>
-      <form className="form-add-lecture" onSubmit={handleSubmit}>
+      <form className="form-add-product" onSubmit={handleSubmit}>
         <label className="label-size" htmlFor="item-1">
           <input
             id="item-1"
             className="items-form"
             type="text"
-            name="lecturename"
-            placeholder="Lecture name"
-            value={lectureName}
-            onChange={(e) => setLectureName(e.target.value)}
+            name="productname"
+            placeholder="product name"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
             required
           />
         </label>
@@ -81,8 +81,8 @@ const AddLecture = () => {
             type="text"
             name="websitelink"
             placeholder="Website link"
-            value={lectureWeb}
-            onChange={(e) => setLectureWeb(e.target.value)}
+            value={productWeb}
+            onChange={(e) => setProductWeb(e.target.value)}
             required
           />
         </label>
@@ -94,8 +94,8 @@ const AddLecture = () => {
             type="number"
             name="price"
             placeholder="Price"
-            value={lecturePrice}
-            onChange={(e) => setLecturePrice(e.target.value)}
+            value={productPrice}
+            onChange={(e) => setProductPrice(e.target.value)}
             required
           />
         </label>
@@ -107,14 +107,14 @@ const AddLecture = () => {
             type="textarea"
             name="description"
             placeholder="Description"
-            value={lectureDesctiption}
-            onChange={(e) => setLectureDescription(e.target.value)}
+            value={productDesctiption}
+            onChange={(e) => setProductDescription(e.target.value)}
             required
           />
         </label>
 
         <button className="form-button" type="submit" id="btn-submit">
-          Create Lecture
+          Create Product
         </button>
       </form>
 
@@ -123,4 +123,4 @@ const AddLecture = () => {
   );
 };
 
-export default AddLecture;
+export default AddProduct;
