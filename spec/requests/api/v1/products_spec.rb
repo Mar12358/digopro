@@ -1,9 +1,9 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/lectures', type: :request do
-  path '/api/v1/lectures' do
-    get(' Get a list of lectures') do
-      tags 'Lectures'
+RSpec.describe 'api/v1/products', type: :request do
+  path '/api/v1/products' do
+    get(' Get a list of products') do
+      tags 'Products'
       response(200, 'successful') do
         after do |example|
           example.metadata[:response][:content] = {
@@ -16,21 +16,24 @@ RSpec.describe 'api/v1/lectures', type: :request do
       end
     end
 
-    post('Create a lecture') do
-      tags 'Lectures'
+    post('Create a product') do
+      tags 'Products'
       # Define the request parameters here
       response(200, 'successful') do
         consumes 'application/json'
-        parameter name: :lecture, in: :body, schema: {
+        parameter name: :product, in: :body, schema: {
           type: :object,
           properties: {
             name: { type: :string },
             image_url: { type: :string },
             description: { type: :string },
-            web_link: { type: :string },
-            price: { type: :number, format: :float }
+            category: { type: :string },
+            year: { type: :integer },
+            is_presice_year: { type: :boolean },
+            price: { type: :decimal },
+            color: { type: :string }
           },
-          required: %w[lecture_id date city]
+          required: %w[product_id date city]
         }
 
         after do |example|
@@ -45,12 +48,12 @@ RSpec.describe 'api/v1/lectures', type: :request do
     end
   end
 
-  path '/api/v1/lectures/{id}' do
+  path '/api/v1/products/{id}' do
     # You'll want to customize the parameter types...
     parameter name: 'id', in: :path, type: :string, description: 'id'
 
-    get('Get a specific lecture by its id') do
-      tags 'Lectures'
+    get('Get a specific product by its id') do
+      tags 'Products'
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -66,11 +69,11 @@ RSpec.describe 'api/v1/lectures', type: :request do
     end
   end
 
-  path '/api/v1/lectures/{id}' do
+  path '/api/v1/products/{id}' do
     # You'll want to customize the parameter types...
-    parameter name: 'id', in: :path, type: :string, description: 'lecture_id'
-    patch('Mark a specific Lecture as removed') do
-      tags 'Lectures'
+    parameter name: 'id', in: :path, type: :string, description: 'product_id'
+    patch('Mark a specific Product as removed') do
+      tags 'Products'
       response(200, 'successful') do
         let(:id) { '1' }
 
