@@ -155,6 +155,7 @@ const Product = () => {
               type="button"
               onClick={handleNextSlide}
               disabled={endIdx >= filteredProducts.length}
+              aria-label="Next Slide"
               className={`${
                 endIdx >= filteredProducts.length
                   ? 'hover:bg-gray-400'

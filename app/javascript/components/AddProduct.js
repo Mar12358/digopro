@@ -48,7 +48,7 @@ const AddProduct = () => {
         so if you would like to add one product please fill this form.
       </h2>
       <form className="form-add-product" onSubmit={handleSubmit}>
-        <label className="label-size" htmlFor="item-1">
+        <label className="label-size" htmlFor="item-1" aria-label="Product Name Input Container">
           <input
             id="item-1"
             className="items-form"
@@ -61,7 +61,7 @@ const AddProduct = () => {
           />
         </label>
 
-        <label className="label-size" htmlFor="item-2">
+        <label className="label-size" htmlFor="item-2" aria-label="Image url Input Container">
           <input
             id="item-2"
             className="items-form"
@@ -74,7 +74,7 @@ const AddProduct = () => {
           />
         </label>
 
-        <label className="label-size" htmlFor="item-3">
+        <label className="label-size" htmlFor="item-3" aria-label="Website links Input Container">
           <input
             id="item-3"
             className="items-form"
@@ -87,7 +87,7 @@ const AddProduct = () => {
           />
         </label>
 
-        <label className="label-size" htmlFor="item-4">
+        <label className="label-size" htmlFor="item-4" aria-label="Price Input Container">
           <input
             id="item-4"
             className="items-form"
@@ -100,7 +100,7 @@ const AddProduct = () => {
           />
         </label>
 
-        <label className="label-size" htmlFor="item-5">
+        <label className="label-size" htmlFor="item-5" aria-label="Description Input Container">
           <textarea
             id="item-5"
             className="textarea"
