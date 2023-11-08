@@ -4,8 +4,11 @@ class CreateLectures < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image_url
       t.string :description
-      t.string :web_link
+      t.string :category
+      t.integer :year
+      t.boolean :is_presice_year
       t.decimal :price
+      t.string :color
 
       t.timestamps
     end
