@@ -18,6 +18,7 @@ const App = () => (
     <Routes className="container-routes">
       <Route index element={<Product />} />
       <Route path="products" element={<Product />} />
+      <Route path="pictures" element={<Pictures />} />
       <Route path="reserve" element={<Reserve />} />
       <Route path="my-reservations" element={<MyReservations />} />
       <Route path="add_product" element={<AddProduct />} />
