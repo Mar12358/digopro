@@ -10,10 +10,10 @@ default: &default
   password: postgres # <<<< Change this to your postgres password
 development:
   <<: *default
-  database: book-an-appointment_app_development
+  database: prodigo_app_development
 test:
   <<: *default
-  database: book-an-appointment_app_test
+  database: prodigo_app_test
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>

@@ -4,6 +4,62 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/users/{user_id}/on_cart_products":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: Get a list of products on cart for a specific user_id
+      tags:
+      - Products on Cart
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Add a product to cart for a specific user_id
+      tags:
+      - Products on Cart
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: number
+              required:
+              - product_id
+              - date
+              - city
+  "/api/v1/users/{user_id}/on_cart_products/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: on_cart_product_id
+      required: true
+      schema:
+        type: string
+    patch:
+      summary: Mark a specific Product on Cart as removed
+      tags:
+      - Products on Cart
+      responses:
+        '200':
+          description: successful
   "/api/v1/products":
     get:
       summary: " Get a list of products"
@@ -32,11 +88,16 @@ paths:
                   type: string
                 description:
                   type: string
-                web_link:
+                category:
                   type: string
+                year:
+                  type: integer
+                is_presice_year:
+                  type: boolean
                 price:
-                  type: number
-                  format: float
+                  type: decimal
+                color:
+                  type: string
               required:
               - product_id
   "/api/v1/products/{id}":
@@ -61,60 +122,6 @@ paths:
       responses:
         '200':
           description: successful
-  "/api/v1/users/{user_id}/on_cart_products":
-    parameters:
-    - name: user_id
-      in: path
-      description: user_id
-      required: true
-      schema:
-        type: string
-    get:
-      summary: Get a list of Products on Cart for a specific user_id
-      tags:
-      - Products on Cart
-      responses:
-        '200':
-          description: successful
-    post:
-      summary: Create a Products on Cart for a specific user_id
-      tags:
-      - Products on Cart
-      parameters: []
-      responses:
-        '200':
-          description: successful
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                product_id:
-                  type: number
-              required:
-              - product_id
-  "/api/v1/users/{user_id}/on_cart_products/{id}":
-    parameters:
-    - name: user_id
-      in: path
-      description: user_id
-      required: true
-      schema:
-        type: string
-    - name: id
-      in: path
-      description: on_cart_products_id
-      required: true
-      schema:
-        type: string
-    patch:
-      summary: Mark a specific Products on Cart as removed
-      tags:
-      - Products on Cart
-      responses:
-        '200':
-          description: successful
   "/api/v1/users":
     get:
       summary: Get the logged in current user
@@ -125,5 +132,4 @@ paths:
         '200':
           description: successful
 servers:
-- url: 'http://127.0.0.1:3000/' # Use this for development
-# - url: 'https://reserve-lectures.onrender.com/' # Use this for production
+- url: http://127.0.0.1:3000/

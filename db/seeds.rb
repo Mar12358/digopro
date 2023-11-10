@@ -1,3 +1,4 @@
+=begin 
 users = [
   {
     "name": "Martin",
@@ -79,6 +80,7 @@ users.each do |user|
   User.create(name: user[:name], email: user[:email], password: user[:password])
 end
 
+
 lectures.each do |lecture|
   Lecture.create(
     name: lecture[:name],
@@ -97,4 +99,4 @@ reservations.each do |reservation|
     city: reservation[:city]
   )
 end
-
+=end

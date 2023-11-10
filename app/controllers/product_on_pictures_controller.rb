@@ -1,0 +1,2 @@
+class ProductOnPicturesController < ApplicationController
+end
