@@ -68,6 +68,15 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               id="hide-1"
+              to="/pictures"
+              className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
+            >
+              PICTURES
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              id="hide-1"
               to="/products"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
