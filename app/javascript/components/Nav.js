@@ -84,7 +84,7 @@ const Nav = () => {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <NavLink
               id="hide-1"
               to="/reserve"
@@ -92,15 +92,15 @@ const Nav = () => {
             >
               RESERVE FORM
             </NavLink>
-          </li>
+          </li> */}
 
           <li className="nav-item">
             <NavLink
               id="hide-1"
-              to="/my-reservations"
+              to="/about"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              RESERVATIONS
+              ABOUT US
             </NavLink>
           </li>
 
@@ -110,7 +110,7 @@ const Nav = () => {
               to="/add_product"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              ADD PRODUCT
+              ADD PRODUCT ONLY ADMIN
             </NavLink>
           </li>
           <li className="nav-item">
@@ -119,7 +119,45 @@ const Nav = () => {
               to="/delete_product"
               className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
             >
-              DELETE PRODUCT
+              DELETE PRODUCT ONLY ADMIN
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink
+              id="hide-1"
+              to="/carts"
+              className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
+            >
+              CARTS ONLY ADMIN
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              id="hide-1"
+              to="/users"
+              className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
+            >
+              USERS ONLY ADMIN
+            </NavLink>
+          </li>
+
+          <li className="nav-item">
+            <NavLink
+              id="hide-1"
+              to="/my-reservations"
+              className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
+            >
+              RESERVATIONS ONLY ADMIN
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              id="hide-1"
+              to="/cart"
+              className={({ isActive }) => (isActive ? 'StyledNavLink' : 'StyledNavLink active')}
+            >
+              CART
             </NavLink>
           </li>
         </ul>
@@ -184,25 +222,32 @@ const Nav = () => {
 
             <li className="dropdown-item">
               <NavLink
+                to="/pictures"
+              >
+                PICTURES
+              </NavLink>
+            </li>
+            <li className="dropdown-item">
+              <NavLink
                 to="/products"
               >
                 PRODUCTS
               </NavLink>
             </li>
 
-            <li className="dropdown-item">
+            {/* <li className="dropdown-item">
               <NavLink
                 to="/reserve"
               >
                 RESERVE FORM
               </NavLink>
-            </li>
+            </li> */}
 
             <li className="dropdown-item">
               <NavLink
-                to="/my-reservations"
+                to="/about"
               >
-                RESERVATIONS
+                ABOUT US
               </NavLink>
             </li>
 
@@ -210,7 +255,7 @@ const Nav = () => {
               <NavLink
                 to="/add_product"
               >
-                ADD PRODUCT
+                ADD PRODUCT ONLY ADMIN
               </NavLink>
             </li>
 
@@ -218,7 +263,37 @@ const Nav = () => {
               <NavLink
                 to="/delete_product"
               >
-                DELETE PRODUCT
+                DELETE PRODUCT ONLY ADMIN
+              </NavLink>
+            </li>
+
+            <li className="dropdown-item">
+              <NavLink
+                to="/carts"
+              >
+                CARTS ONLY ADMIN
+              </NavLink>
+            </li>
+
+            <li className="dropdown-item">
+              <NavLink
+                to="/users"
+              >
+                USERS ONLY ADMIN
+              </NavLink>
+            </li>
+            <li className="dropdown-item">
+              <NavLink
+                to="/my-reservations"
+              >
+                RESERVATIONS ONLY ADMIN
+              </NavLink>
+            </li>
+            <li className="dropdown-item">
+              <NavLink
+                to="/cart"
+              >
+                CART
               </NavLink>
             </li>
           </ul>
