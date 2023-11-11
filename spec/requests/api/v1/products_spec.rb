@@ -27,13 +27,13 @@ RSpec.describe 'api/v1/products', type: :request do
             name: { type: :string },
             image_url: { type: :string },
             description: { type: :string },
-            category: { type: :string },
+            category_id: { type: :integer },
             year: { type: :integer },
             is_presice_year: { type: :boolean },
-            price: { type: :decimal },
+            price: { type: :number },
             color: { type: :string }
           },
-          required: %w[product_id]
+          required: %w[name price]
         }
 
         after do |example|

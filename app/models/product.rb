@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   has_many :reservations
   has_many :carts
-  belongs_to :picture
   belongs_to :category
 
   validates :name, presence: true, length: { maximum: 25, too_long: '%<count>s characters is the maximum allowed' }

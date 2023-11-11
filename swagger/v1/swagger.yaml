@@ -88,18 +88,19 @@ paths:
                   type: string
                 description:
                   type: string
-                category:
-                  type: string
+                category_id:
+                  type: integer
                 year:
                   type: integer
                 is_presice_year:
                   type: boolean
                 price:
-                  type: decimal
+                  type: number
                 color:
                   type: string
               required:
-              - product_id
+              - name
+              - price
   "/api/v1/products/{id}":
     parameters:
     - name: id

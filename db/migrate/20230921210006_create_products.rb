@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :image_url
       t.string :description
-      t.string :category
       t.integer :year
       t.boolean :is_presice_year, default: true
       t.decimal :price

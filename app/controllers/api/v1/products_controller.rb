@@ -19,7 +19,7 @@ class Api::V1::ProductsController < ApplicationController
       name: product_params[:name],
       description: product_params[:description],
       image_url: product_params[:image_url],
-      category: product_params[:category],
+      category_id: product_params[:category_id],
       year: product_params[:year],
       is_presice_year: product_params[:is_presice_year],
       price: product_params[:price],
@@ -31,6 +31,7 @@ class Api::V1::ProductsController < ApplicationController
         format.json { render json: JSON.pretty_generate(@product.as_json), status: :created }
       end
     else
+      puts "sjh"
       respond_to do |format|
         format.json do
           render json: JSON.pretty_generate(@product.errors.full_messages.as_json), status: :unprocessable_entity
@@ -40,7 +41,7 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :image_url, :category, :year, :is_presice_year, :price, :color)
+    params.require(:product).permit(:name, :description, :image_url, :category_id, :year, :is_presice_year, :price, :color)
   end
 
   def update
